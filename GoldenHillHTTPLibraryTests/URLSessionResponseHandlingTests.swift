@@ -45,7 +45,13 @@ class URLSessionResponseHandlingTests : XCTestCase {
         return nil
     }
     
+    // The expected input is a JSON string: {"a": "b"}
     private func returnServerError( input: Any ) -> String? {
+        guard let inputJson = input as? [String: String] else {
+            XCTFail()
+            return nil
+        }
+        XCTAssertEqual(inputJson["a"], "b")
         return "My custom server error."
     }
     
