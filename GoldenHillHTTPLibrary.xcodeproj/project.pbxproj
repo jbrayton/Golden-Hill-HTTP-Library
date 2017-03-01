@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		213711DA1E67373400961208 /* NoRedirectFromHttpsToHttpSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711D71E67373400961208 /* NoRedirectFromHttpsToHttpSessionDelegate.swift */; };
+		213711DB1E67373400961208 /* NoRedirectUrlSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711D81E67373400961208 /* NoRedirectUrlSessionDelegate.swift */; };
+		213711DC1E67373400961208 /* PinningURLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711D91E67373400961208 /* PinningURLSessionDelegate.swift */; };
+		213711DE1E67386200961208 /* URLSession+ResponseHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711DD1E67386200961208 /* URLSession+ResponseHandling.swift */; };
+		213711E01E67393400961208 /* NetworkNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711DF1E67393400961208 /* NetworkNotifications.swift */; };
+		213711E21E6739C600961208 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711E11E6739C600961208 /* ApiError.swift */; };
+		213711E61E673ACD00961208 /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711E51E673ACD00961208 /* ApiResult.swift */; };
+		213711E81E673B6800961208 /* String+Capitalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711E71E673B6800961208 /* String+Capitalize.swift */; };
+		21D3787E1E67298D00B985FD /* GoldenHillHTTPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */; };
+		21D378831E67298D00B985FD /* GoldenHillHTTPLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D378821E67298D00B985FD /* GoldenHillHTTPLibraryTests.swift */; };
+		21D378851E67298D00B985FD /* GoldenHillHTTPLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21D5F8C61E6729C000B9A70F /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D5F8C51E6729C000B9A70F /* Result.framework */; };
+		21D5F8C81E6729E800B9A70F /* URLRequest+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D5F8C71E6729E800B9A70F /* URLRequest+Convenience.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		21D3787F1E67298D00B985FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21D3786B1E67298D00B985FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21D378731E67298D00B985FD;
+			remoteInfo = GoldenHillHTTPLibrary;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		213711D71E67373400961208 /* NoRedirectFromHttpsToHttpSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoRedirectFromHttpsToHttpSessionDelegate.swift; sourceTree = "<group>"; };
+		213711D81E67373400961208 /* NoRedirectUrlSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoRedirectUrlSessionDelegate.swift; sourceTree = "<group>"; };
+		213711D91E67373400961208 /* PinningURLSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinningURLSessionDelegate.swift; sourceTree = "<group>"; };
+		213711DD1E67386200961208 /* URLSession+ResponseHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+ResponseHandling.swift"; sourceTree = "<group>"; };
+		213711DF1E67393400961208 /* NetworkNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkNotifications.swift; sourceTree = "<group>"; };
+		213711E11E6739C600961208 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		213711E51E673ACD00961208 /* ApiResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
+		213711E71E673B6800961208 /* String+Capitalize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Capitalize.swift"; sourceTree = "<group>"; };
+		21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoldenHillHTTPLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoldenHillHTTPLibrary.h; sourceTree = "<group>"; };
+		21D378781E67298D00B985FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21D3787D1E67298D00B985FD /* GoldenHillHTTPLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenHillHTTPLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21D378821E67298D00B985FD /* GoldenHillHTTPLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenHillHTTPLibraryTests.swift; sourceTree = "<group>"; };
+		21D378841E67298D00B985FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21D5F8C51E6729C000B9A70F /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		21D5F8C71E6729E800B9A70F /* URLRequest+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Convenience.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		21D378701E67298D00B985FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21D5F8C61E6729C000B9A70F /* Result.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21D3787A1E67298D00B985FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21D3787E1E67298D00B985FD /* GoldenHillHTTPLibrary.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		213711D61E672C8100961208 /* Session Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				213711D71E67373400961208 /* NoRedirectFromHttpsToHttpSessionDelegate.swift */,
+				213711D81E67373400961208 /* NoRedirectUrlSessionDelegate.swift */,
+				213711D91E67373400961208 /* PinningURLSessionDelegate.swift */,
+			);
+			name = "Session Delegates";
+			sourceTree = "<group>";
+		};
+		21D3786A1E67298D00B985FD = {
+			isa = PBXGroup;
+			children = (
+				21D378761E67298D00B985FD /* GoldenHillHTTPLibrary */,
+				21D378811E67298D00B985FD /* GoldenHillHTTPLibraryTests */,
+				21D378751E67298D00B985FD /* Products */,
+				21D5F8C41E6729C000B9A70F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		21D378751E67298D00B985FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */,
+				21D3787D1E67298D00B985FD /* GoldenHillHTTPLibraryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21D378761E67298D00B985FD /* GoldenHillHTTPLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */,
+				213711E11E6739C600961208 /* ApiError.swift */,
+				213711E71E673B6800961208 /* String+Capitalize.swift */,
+				213711E51E673ACD00961208 /* ApiResult.swift */,
+				213711DF1E67393400961208 /* NetworkNotifications.swift */,
+				21D5F8C71E6729E800B9A70F /* URLRequest+Convenience.swift */,
+				213711DD1E67386200961208 /* URLSession+ResponseHandling.swift */,
+				213711D61E672C8100961208 /* Session Delegates */,
+				21D378781E67298D00B985FD /* Info.plist */,
+			);
+			path = GoldenHillHTTPLibrary;
+			sourceTree = "<group>";
+		};
+		21D378811E67298D00B985FD /* GoldenHillHTTPLibraryTests */ = {
+			isa = PBXGroup;
+			children = (
+				21D378821E67298D00B985FD /* GoldenHillHTTPLibraryTests.swift */,
+				21D378841E67298D00B985FD /* Info.plist */,
+			);
+			path = GoldenHillHTTPLibraryTests;
+			sourceTree = "<group>";
+		};
+		21D5F8C41E6729C000B9A70F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21D5F8C51E6729C000B9A70F /* Result.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		21D378711E67298D00B985FD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21D378851E67298D00B985FD /* GoldenHillHTTPLibrary.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		21D378731E67298D00B985FD /* GoldenHillHTTPLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21D378881E67298D00B985FD /* Build configuration list for PBXNativeTarget "GoldenHillHTTPLibrary" */;
+			buildPhases = (
+				21D3786F1E67298D00B985FD /* Sources */,
+				21D378701E67298D00B985FD /* Frameworks */,
+				21D378711E67298D00B985FD /* Headers */,
+				21D378721E67298D00B985FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoldenHillHTTPLibrary;
+			productName = GoldenHillHTTPLibrary;
+			productReference = 21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		21D3787C1E67298D00B985FD /* GoldenHillHTTPLibraryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21D3788B1E67298D00B985FD /* Build configuration list for PBXNativeTarget "GoldenHillHTTPLibraryTests" */;
+			buildPhases = (
+				21D378791E67298D00B985FD /* Sources */,
+				21D3787A1E67298D00B985FD /* Frameworks */,
+				21D3787B1E67298D00B985FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21D378801E67298D00B985FD /* PBXTargetDependency */,
+			);
+			name = GoldenHillHTTPLibraryTests;
+			productName = GoldenHillHTTPLibraryTests;
+			productReference = 21D3787D1E67298D00B985FD /* GoldenHillHTTPLibraryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		21D3786B1E67298D00B985FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "John Brayton";
+				TargetAttributes = {
+					21D378731E67298D00B985FD = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 372S63A2R8;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+					21D3787C1E67298D00B985FD = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 372S63A2R8;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 21D3786E1E67298D00B985FD /* Build configuration list for PBXProject "GoldenHillHTTPLibrary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 21D3786A1E67298D00B985FD;
+			productRefGroup = 21D378751E67298D00B985FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				21D378731E67298D00B985FD /* GoldenHillHTTPLibrary */,
+				21D3787C1E67298D00B985FD /* GoldenHillHTTPLibraryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		21D378721E67298D00B985FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21D3787B1E67298D00B985FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		21D3786F1E67298D00B985FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				213711E21E6739C600961208 /* ApiError.swift in Sources */,
+				213711DB1E67373400961208 /* NoRedirectUrlSessionDelegate.swift in Sources */,
+				21D5F8C81E6729E800B9A70F /* URLRequest+Convenience.swift in Sources */,
+				213711E61E673ACD00961208 /* ApiResult.swift in Sources */,
+				213711DE1E67386200961208 /* URLSession+ResponseHandling.swift in Sources */,
+				213711DA1E67373400961208 /* NoRedirectFromHttpsToHttpSessionDelegate.swift in Sources */,
+				213711E81E673B6800961208 /* String+Capitalize.swift in Sources */,
+				213711DC1E67373400961208 /* PinningURLSessionDelegate.swift in Sources */,
+				213711E01E67393400961208 /* NetworkNotifications.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21D378791E67298D00B985FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21D378831E67298D00B985FD /* GoldenHillHTTPLibraryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21D378801E67298D00B985FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21D378731E67298D00B985FD /* GoldenHillHTTPLibrary */;
+			targetProxy = 21D3787F1E67298D00B985FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		21D378861E67298D00B985FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		21D378871E67298D00B985FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		21D378891E67298D00B985FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 372S63A2R8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = GoldenHillHTTPLibrary/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.goldenhillsoftware.GoldenHillHTTPLibrary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		21D3788A1E67298D00B985FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 372S63A2R8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = GoldenHillHTTPLibrary/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.goldenhillsoftware.GoldenHillHTTPLibrary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		21D3788C1E67298D00B985FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 372S63A2R8;
+				INFOPLIST_FILE = GoldenHillHTTPLibraryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.goldenhillsoftware.GoldenHillHTTPLibraryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		21D3788D1E67298D00B985FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 372S63A2R8;
+				INFOPLIST_FILE = GoldenHillHTTPLibraryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.goldenhillsoftware.GoldenHillHTTPLibraryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		21D3786E1E67298D00B985FD /* Build configuration list for PBXProject "GoldenHillHTTPLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21D378861E67298D00B985FD /* Debug */,
+				21D378871E67298D00B985FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21D378881E67298D00B985FD /* Build configuration list for PBXNativeTarget "GoldenHillHTTPLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21D378891E67298D00B985FD /* Debug */,
+				21D3788A1E67298D00B985FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21D3788B1E67298D00B985FD /* Build configuration list for PBXNativeTarget "GoldenHillHTTPLibraryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21D3788C1E67298D00B985FD /* Debug */,
+				21D3788D1E67298D00B985FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 21D3786B1E67298D00B985FD /* Project object */;
+}
