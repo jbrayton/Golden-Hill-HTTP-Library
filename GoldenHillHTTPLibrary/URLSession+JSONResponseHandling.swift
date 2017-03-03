@@ -1,5 +1,5 @@
 //
-//  URLSession+ResponseHandling.swift
+//  URLSession+JSONResponseHandling.swift
 //  GoldenHillHTTPLibrary
 //
 //  Created by John Brayton on 3/1/17.
@@ -35,7 +35,7 @@ public extension URLSession {
        could be found in the response.
      * handler: Will be called when completed with either a success response or an error response.
      */
-    public func ghs_dataTaskWithRequest<T>( request: URLRequest, apiLabel: String, operationLabel: String, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping (Result<T,ApiError>) -> Void ) -> URLSessionDataTask {
+    public func ghs_dataTaskWithRequest<T>( request: URLRequest, apiLabel: String, operationLabel: String, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping (Result<T,HTTPAPIError>) -> Void ) -> URLSessionDataTask {
         NotificationCenter.default.post(name: NetworkNotifications.starting, object: nil)
         return self.dataTask(with: request, completionHandler: {[unowned self](data, response, error) in
             self.ghs_completionHandlerWithJson(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, jsonResponseInterpreter: jsonResponseInterpreter, errorMessageInterpreter: errorMessageInterpreter, handler: handler)
@@ -50,7 +50,7 @@ public extension URLSession {
        parameter.
      * It will accept an HTTP response code of 200, 201, 202, or 204.
      */
-    public func ghs_dataTaskWithRequestIgnoringResponseBody( request: URLRequest, apiLabel: String, operationLabel: String, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping ApiResultHandler<Void> ) -> URLSessionDataTask {
+    public func ghs_dataTaskWithRequestIgnoringResponseBody( request: URLRequest, apiLabel: String, operationLabel: String, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<Void> ) -> URLSessionDataTask {
         NotificationCenter.default.post(name: NetworkNotifications.starting, object: nil)
         return self.dataTask(with: request, completionHandler: {[unowned self](data, response, error) in
             self.ghs_completionHandler(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, errorMessageInterpreter: errorMessageInterpreter, handler: handler)
@@ -58,7 +58,7 @@ public extension URLSession {
         })
     }
 
-    func ghs_completionHandler( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, errorMessageInterpreter: @escaping ErrorMessageInterpreter, handler: @escaping ApiResultHandler<Void> ) {
+    func ghs_completionHandler( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, errorMessageInterpreter: @escaping ErrorMessageInterpreter, handler: @escaping HTTPAPIResultHandler<Void> ) {
         if let httpResponse = response as? HTTPURLResponse {
             // Allow almost any 2xx status code here.
             if ((httpResponse.statusCode == 200) || (httpResponse.statusCode == 201) || (httpResponse.statusCode == 202) || (httpResponse.statusCode == 204)) {
@@ -66,22 +66,22 @@ public extension URLSession {
             } else {
                 if httpResponse.statusCode > 399 {
                     if let theData = data, let errorMessage = self.ghs_parsePotentialError(httpResponse: httpResponse, data: theData, errorMessageInterpreter: errorMessageInterpreter) {
-                        handler(Result.failure(ApiError.errorMessageFromServer(apiLabel: apiLabel, operationLabel: operationLabel, message: errorMessage)))
+                        handler(Result.failure(HTTPAPIError.errorMessageFromServer(apiLabel: apiLabel, operationLabel: operationLabel, message: errorMessage)))
                         return
                     }
                 }
-                handler(Result.failure(ApiError.statusCode(apiLabel: apiLabel, operationLabel: operationLabel, statusCode: httpResponse.statusCode)))
+                handler(Result.failure(HTTPAPIError.statusCode(apiLabel: apiLabel, operationLabel: operationLabel, statusCode: httpResponse.statusCode)))
             }
         } else {
             if let e = error {
-                handler(Result.failure(ApiError.connection(apiLabel: apiLabel, operationLabel: operationLabel, error: e)))
+                handler(Result.failure(HTTPAPIError.connection(apiLabel: apiLabel, operationLabel: operationLabel, error: e)))
             } else {
-                handler(Result.failure(ApiError.urlSessionUnexpectedResponse(apiLabel: apiLabel, operationLabel: operationLabel)))
+                handler(Result.failure(HTTPAPIError.urlSessionUnexpectedResponse(apiLabel: apiLabel, operationLabel: operationLabel)))
             }
         }
     }
 
-    func ghs_completionHandlerWithJson<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter, handler: (Result<T,ApiError>) -> Void ) {
+    func ghs_completionHandlerWithJson<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter, handler: (Result<T,HTTPAPIError>) -> Void ) {
         if let httpResponse = response as? HTTPURLResponse {
             if httpResponse.statusCode == 200 {
                 if let d = data {
@@ -90,28 +90,28 @@ public extension URLSession {
                         if let result = jsonResponseInterpreter(json) {
                             handler(Result.success(result))
                         } else {
-                            handler(Result.failure(ApiError.interpretResponse(apiLabel: apiLabel, operationLabel: operationLabel)))
+                            handler(Result.failure(HTTPAPIError.interpretResponse(apiLabel: apiLabel, operationLabel: operationLabel)))
                         }
                     } else {
-                        handler(Result.failure(ApiError.interpretResponse(apiLabel: apiLabel, operationLabel: operationLabel)))
+                        handler(Result.failure(HTTPAPIError.interpretResponse(apiLabel: apiLabel, operationLabel: operationLabel)))
                     }
                 } else {
-                    handler(Result.failure(ApiError.interpretResponse(apiLabel: apiLabel, operationLabel: operationLabel)))
+                    handler(Result.failure(HTTPAPIError.interpretResponse(apiLabel: apiLabel, operationLabel: operationLabel)))
                 }
             } else {
                 if httpResponse.statusCode > 399 {
                     if let theData = data, let errorMessage = self.ghs_parsePotentialError(httpResponse: httpResponse, data: theData, errorMessageInterpreter: errorMessageInterpreter) {
-                        handler(Result.failure(ApiError.errorMessageFromServer(apiLabel: apiLabel, operationLabel: operationLabel, message: errorMessage)))
+                        handler(Result.failure(HTTPAPIError.errorMessageFromServer(apiLabel: apiLabel, operationLabel: operationLabel, message: errorMessage)))
                         return
                     }
                 }
-                handler(Result.failure(ApiError.statusCode(apiLabel: apiLabel, operationLabel: operationLabel, statusCode: httpResponse.statusCode)))
+                handler(Result.failure(HTTPAPIError.statusCode(apiLabel: apiLabel, operationLabel: operationLabel, statusCode: httpResponse.statusCode)))
             }
         } else {
             if let e = error {
-                handler(Result.failure(ApiError.connection(apiLabel: apiLabel, operationLabel: operationLabel, error: e)))
+                handler(Result.failure(HTTPAPIError.connection(apiLabel: apiLabel, operationLabel: operationLabel, error: e)))
             } else {
-                handler(Result.failure(ApiError.urlSessionUnexpectedResponse(apiLabel: apiLabel, operationLabel: operationLabel)))
+                handler(Result.failure(HTTPAPIError.urlSessionUnexpectedResponse(apiLabel: apiLabel, operationLabel: operationLabel)))
             }
         }
     }

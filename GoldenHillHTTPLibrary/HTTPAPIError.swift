@@ -1,5 +1,5 @@
 //
-//  ApiError.swift
+//  HTTPAPIError.swift
 //  Subscribe
 //
 //  Created by John Brayton on 2/10/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum ApiError: Error {
+public enum HTTPAPIError: Error {
     case connection(apiLabel: String, operationLabel: String, error: Error)
     case statusCode(apiLabel: String, operationLabel: String, statusCode: Int)
     case interpretResponse(apiLabel: String, operationLabel: String)
@@ -17,6 +17,7 @@ public enum ApiError: Error {
     case retrieveRefreshTokenFromKeychain(apiLabel: String, operationLabel: String)
     
     public var shortErrorMessage: String {
+        
         switch self {
         case .connection(_, let operationLabel, _):
             return self.getShortErrorMessage(operationLabel: operationLabel)

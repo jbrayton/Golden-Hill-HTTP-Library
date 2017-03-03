@@ -37,7 +37,7 @@ class URLSessionResponseHandlingTests : XCTestCase {
         XCTFail("should not have gotten here")
     }
     
-    private func shouldNotBeCalledErrorHandler( error: ApiError ) {
+    private func shouldNotBeCalledErrorHandler( error: HTTPAPIError ) {
         XCTFail("should not have gotten here")
     }
     
