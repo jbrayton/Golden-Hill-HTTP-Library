@@ -24,6 +24,7 @@
 		213711FD1E67769100961208 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213711FB1E67769100961208 /* LaunchScreen.storyboard */; };
 		213712121E677DB800961208 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D5F8C51E6729C000B9A70F /* Result.framework */; };
 		213712131E677DF300961208 /* GoldenHillHTTPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */; };
+		2137121A1E69CDF300961208 /* ApiErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213712191E69CDF300961208 /* ApiErrorTests.swift */; };
 		21D3787E1E67298D00B985FD /* GoldenHillHTTPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */; };
 		21D378831E67298D00B985FD /* GoldenHillHTTPLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D378821E67298D00B985FD /* GoldenHillHTTPLibraryTests.swift */; };
 		21D378851E67298D00B985FD /* GoldenHillHTTPLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,6 +66,7 @@
 		213711F91E67769100961208 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		213711FC1E67769100961208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		213711FE1E67769100961208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		213712191E69CDF300961208 /* ApiErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiErrorTests.swift; sourceTree = "<group>"; };
 		21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoldenHillHTTPLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoldenHillHTTPLibrary.h; sourceTree = "<group>"; };
 		21D378781E67298D00B985FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				21D378821E67298D00B985FD /* GoldenHillHTTPLibraryTests.swift */,
 				213711E91E6770D400961208 /* URLSessionResponseHandlingTests.swift */,
+				213712191E69CDF300961208 /* ApiErrorTests.swift */,
 				21D378841E67298D00B985FD /* Info.plist */,
 			);
 			path = GoldenHillHTTPLibraryTests;
@@ -377,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				213711EA1E6770D500961208 /* URLSessionResponseHandlingTests.swift in Sources */,
+				2137121A1E69CDF300961208 /* ApiErrorTests.swift in Sources */,
 				21D378831E67298D00B985FD /* GoldenHillHTTPLibraryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
