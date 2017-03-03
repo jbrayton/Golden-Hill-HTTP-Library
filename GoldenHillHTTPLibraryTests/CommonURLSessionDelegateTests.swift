@@ -19,7 +19,6 @@ class CommonURLSessionDelegateTests: XCTestCase {
         
         XCTAssertFalse(delegate.isHttps(url: URL(string: "http://www.goldenhillsoftware.com/")!))
         XCTAssertFalse(delegate.isHttps(url: URL(string: "FTP://www.goldenhillsoftware.com/")!))
-        XCTAssertFalse(delegate.isHttps(url: nil))
     }
     
     func testFollowRedirect() {
@@ -29,19 +28,48 @@ class CommonURLSessionDelegateTests: XCTestCase {
         let nilUrl: URL? = nil
         
         var delegate = CommonURLSessionDelegate(followRedirects: .always, certificateUrls: nil)
-        XCTAssertTrue(delegate.followRedirect(toUrl: httpUrl))
-        XCTAssertTrue(delegate.followRedirect(toUrl: httpsUrl))
-        XCTAssertTrue(delegate.followRedirect(toUrl: nilUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpsUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: nilUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: httpsUrl, toUrl: httpUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: httpsUrl, toUrl: httpsUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: httpsUrl, toUrl: nilUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: nilUrl, toUrl: httpUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: nilUrl, toUrl: httpsUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: nilUrl, toUrl: nilUrl))
         
         delegate = CommonURLSessionDelegate(followRedirects: .never, certificateUrls: nil)
-        XCTAssertFalse(delegate.followRedirect(toUrl: httpUrl))
-        XCTAssertFalse(delegate.followRedirect(toUrl: httpsUrl))
-        XCTAssertFalse(delegate.followRedirect(toUrl: nilUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpsUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: httpUrl, toUrl: nilUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: httpsUrl, toUrl: httpUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: httpsUrl, toUrl: httpsUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: httpsUrl, toUrl: nilUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: nilUrl, toUrl: httpUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: nilUrl, toUrl: httpsUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: nilUrl, toUrl: nilUrl))
         
         delegate = CommonURLSessionDelegate(followRedirects: .httpsOnly, certificateUrls: nil)
-        XCTAssertFalse(delegate.followRedirect(toUrl: httpUrl))
-        XCTAssertTrue(delegate.followRedirect(toUrl: httpsUrl))
-        XCTAssertFalse(delegate.followRedirect(toUrl: nilUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpsUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: httpUrl, toUrl: nilUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: httpsUrl, toUrl: httpUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: httpsUrl, toUrl: httpsUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: httpsUrl, toUrl: nilUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: nilUrl, toUrl: httpUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: nilUrl, toUrl: httpsUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: nilUrl, toUrl: nilUrl))
+        
+        delegate = CommonURLSessionDelegate(followRedirects: .httpsOnlyWhenFromHttps, certificateUrls: nil)
+        XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpsUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: nilUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: httpsUrl, toUrl: httpUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: httpsUrl, toUrl: httpsUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: httpsUrl, toUrl: nilUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: nilUrl, toUrl: httpUrl))
+        XCTAssertTrue(delegate.followRedirect(fromUrl: nilUrl, toUrl: httpsUrl))
+        XCTAssertFalse(delegate.followRedirect(fromUrl: nilUrl, toUrl: nilUrl))
     }
     
 }

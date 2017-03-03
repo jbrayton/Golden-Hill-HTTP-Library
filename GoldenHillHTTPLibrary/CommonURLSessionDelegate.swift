@@ -14,6 +14,7 @@ public class CommonURLSessionDelegate: NSObject, URLSessionDelegate, URLSessionT
         case always
         case never
         case httpsOnly
+        case httpsOnlyWhenFromHttps
     }
     
     let followRedirects: FollowRedirects
@@ -31,26 +32,39 @@ public class CommonURLSessionDelegate: NSObject, URLSessionDelegate, URLSessionT
     
     public func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Swift.Void) {
         
-        if self.followRedirect(toUrl: request.url) {
+        if self.followRedirect(fromUrl: response.url, toUrl: request.url) {
             completionHandler(request)
         } else {
             completionHandler(nil)
         }
     }
     
-    func followRedirect( toUrl url: URL? ) -> Bool {
+    func followRedirect( fromUrl source: URL?, toUrl dest: URL? ) -> Bool {
         switch self.followRedirects {
         case .always:
             return true
         case .never:
             return false
         case .httpsOnly:
-            return self.isHttps(url: url)
+            if let destUrl = dest {
+                return self.isHttps(url: destUrl)
+            } else {
+                return false
+            }
+        case .httpsOnlyWhenFromHttps:
+            
+            if let destUrl = dest, self.isHttps(url: destUrl) {
+                return true
+            }
+            if let sourceUrl = source, !self.isHttps(url: sourceUrl) {
+                return true
+            }
+            return false
         }
     }
     
-    func isHttps( url: URL? ) -> Bool {
-        return url?.scheme?.lowercased() == "https"
+    func isHttps( url: URL ) -> Bool {
+        return url.scheme?.lowercased() == "https"
     }
 
     public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
