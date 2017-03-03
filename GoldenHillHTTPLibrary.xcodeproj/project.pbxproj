@@ -566,6 +566,7 @@
 				);
 				INFOPLIST_FILE = GoldenHillHTTPLibrary/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldenhillsoftware.GoldenHillHTTPLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -592,6 +593,7 @@
 				);
 				INFOPLIST_FILE = GoldenHillHTTPLibrary/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldenhillsoftware.GoldenHillHTTPLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -648,6 +650,7 @@
 				2137120C1E67769200961208 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21D3786E1E67298D00B985FD /* Build configuration list for PBXProject "GoldenHillHTTPLibrary" */ = {
 			isa = XCConfigurationList;
