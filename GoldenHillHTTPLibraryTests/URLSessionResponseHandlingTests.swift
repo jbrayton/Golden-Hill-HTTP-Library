@@ -14,7 +14,7 @@ class URLSessionResponseHandlingTests : XCTestCase {
     
     let url = URL(string: "https://www.goldenhillsoftware.com/")!
     let request = URLRequest(url: URL(string: "https://www.goldenhillsoftware.com/")!)
-    let urlSession = URLSession(configuration: URLSessionConfiguration.ephemeral, delegate: NoRedirectUrlSessionDelegate.delegate, delegateQueue: nil)
+    let urlSession = URLSession(configuration: URLSessionConfiguration.ephemeral)
     
     private func shouldNotBeCalledParser( obj: Any ) -> ParsedResponse? {
         XCTFail("should not have gotten here")

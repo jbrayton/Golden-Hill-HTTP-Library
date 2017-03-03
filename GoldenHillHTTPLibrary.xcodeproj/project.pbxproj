@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		213711DA1E67373400961208 /* NoRedirectFromHttpsToHttpSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711D71E67373400961208 /* NoRedirectFromHttpsToHttpSessionDelegate.swift */; };
-		213711DB1E67373400961208 /* NoRedirectUrlSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711D81E67373400961208 /* NoRedirectUrlSessionDelegate.swift */; };
-		213711DC1E67373400961208 /* PinningURLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711D91E67373400961208 /* PinningURLSessionDelegate.swift */; };
+		213711DC1E67373400961208 /* CommonURLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711D91E67373400961208 /* CommonURLSessionDelegate.swift */; };
 		213711DE1E67386200961208 /* URLSession+JSONResponseHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711DD1E67386200961208 /* URLSession+JSONResponseHandling.swift */; };
 		213711E01E67393400961208 /* NetworkNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711DF1E67393400961208 /* NetworkNotifications.swift */; };
 		213711E21E6739C600961208 /* HTTPAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711E11E6739C600961208 /* HTTPAPIError.swift */; };
@@ -25,6 +23,7 @@
 		213712121E677DB800961208 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D5F8C51E6729C000B9A70F /* Result.framework */; };
 		213712131E677DF300961208 /* GoldenHillHTTPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */; };
 		2137121A1E69CDF300961208 /* HTTPAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213712191E69CDF300961208 /* HTTPAPIErrorTests.swift */; };
+		2137121D1E6A0EBD00961208 /* CommonURLSessionDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137121C1E6A0EBD00961208 /* CommonURLSessionDelegateTests.swift */; };
 		21D3787E1E67298D00B985FD /* GoldenHillHTTPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */; };
 		21D378851E67298D00B985FD /* GoldenHillHTTPLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21D5F8C61E6729C000B9A70F /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D5F8C51E6729C000B9A70F /* Result.framework */; };
@@ -49,9 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		213711D71E67373400961208 /* NoRedirectFromHttpsToHttpSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoRedirectFromHttpsToHttpSessionDelegate.swift; sourceTree = "<group>"; };
-		213711D81E67373400961208 /* NoRedirectUrlSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoRedirectUrlSessionDelegate.swift; sourceTree = "<group>"; };
-		213711D91E67373400961208 /* PinningURLSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinningURLSessionDelegate.swift; sourceTree = "<group>"; };
+		213711D91E67373400961208 /* CommonURLSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonURLSessionDelegate.swift; sourceTree = "<group>"; };
 		213711DD1E67386200961208 /* URLSession+JSONResponseHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+JSONResponseHandling.swift"; sourceTree = "<group>"; };
 		213711DF1E67393400961208 /* NetworkNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkNotifications.swift; sourceTree = "<group>"; };
 		213711E11E6739C600961208 /* HTTPAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPAPIError.swift; sourceTree = "<group>"; };
@@ -66,6 +63,7 @@
 		213711FC1E67769100961208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		213711FE1E67769100961208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		213712191E69CDF300961208 /* HTTPAPIErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPAPIErrorTests.swift; sourceTree = "<group>"; };
+		2137121C1E6A0EBD00961208 /* CommonURLSessionDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonURLSessionDelegateTests.swift; sourceTree = "<group>"; };
 		21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoldenHillHTTPLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoldenHillHTTPLibrary.h; sourceTree = "<group>"; };
 		21D378781E67298D00B985FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,16 +103,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		213711D61E672C8100961208 /* Session Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				213711D71E67373400961208 /* NoRedirectFromHttpsToHttpSessionDelegate.swift */,
-				213711D81E67373400961208 /* NoRedirectUrlSessionDelegate.swift */,
-				213711D91E67373400961208 /* PinningURLSessionDelegate.swift */,
-			);
-			name = "Session Delegates";
-			sourceTree = "<group>";
-		};
 		213711F11E67769100961208 /* HostApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,13 +141,13 @@
 			isa = PBXGroup;
 			children = (
 				21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */,
+				213711D91E67373400961208 /* CommonURLSessionDelegate.swift */,
 				213711E11E6739C600961208 /* HTTPAPIError.swift */,
 				213711E51E673ACD00961208 /* HTTPAPIResult.swift */,
 				213711DF1E67393400961208 /* NetworkNotifications.swift */,
 				213711E71E673B6800961208 /* String+Capitalize.swift */,
 				21D5F8C71E6729E800B9A70F /* URLRequest+Convenience.swift */,
 				213711DD1E67386200961208 /* URLSession+JSONResponseHandling.swift */,
-				213711D61E672C8100961208 /* Session Delegates */,
 				21D378781E67298D00B985FD /* Info.plist */,
 			);
 			path = GoldenHillHTTPLibrary;
@@ -168,8 +156,9 @@
 		21D378811E67298D00B985FD /* GoldenHillHTTPLibraryTests */ = {
 			isa = PBXGroup;
 			children = (
-				213711E91E6770D400961208 /* URLSessionResponseHandlingTests.swift */,
+				2137121C1E6A0EBD00961208 /* CommonURLSessionDelegateTests.swift */,
 				213712191E69CDF300961208 /* HTTPAPIErrorTests.swift */,
+				213711E91E6770D400961208 /* URLSessionResponseHandlingTests.swift */,
 				21D378841E67298D00B985FD /* Info.plist */,
 			);
 			path = GoldenHillHTTPLibraryTests;
@@ -361,13 +350,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				213711E21E6739C600961208 /* HTTPAPIError.swift in Sources */,
-				213711DB1E67373400961208 /* NoRedirectUrlSessionDelegate.swift in Sources */,
 				21D5F8C81E6729E800B9A70F /* URLRequest+Convenience.swift in Sources */,
 				213711E61E673ACD00961208 /* HTTPAPIResult.swift in Sources */,
 				213711DE1E67386200961208 /* URLSession+JSONResponseHandling.swift in Sources */,
-				213711DA1E67373400961208 /* NoRedirectFromHttpsToHttpSessionDelegate.swift in Sources */,
 				213711E81E673B6800961208 /* String+Capitalize.swift in Sources */,
-				213711DC1E67373400961208 /* PinningURLSessionDelegate.swift in Sources */,
+				213711DC1E67373400961208 /* CommonURLSessionDelegate.swift in Sources */,
 				213711E01E67393400961208 /* NetworkNotifications.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2137121D1E6A0EBD00961208 /* CommonURLSessionDelegateTests.swift in Sources */,
 				213711EA1E6770D500961208 /* URLSessionResponseHandlingTests.swift in Sources */,
 				2137121A1E69CDF300961208 /* HTTPAPIErrorTests.swift in Sources */,
 			);
