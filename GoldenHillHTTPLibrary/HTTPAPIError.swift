@@ -15,6 +15,7 @@ public enum HTTPAPIError: Error {
     case errorMessageFromServer(apiLabel: String, operationLabel: String, message: String?)
     case urlSessionUnexpectedResponse(apiLabel: String, operationLabel: String)
     case retrieveRefreshTokenFromKeychain(apiLabel: String, operationLabel: String)
+    case incorrectPassword(apiLabel: String, operationLabel: String, usernameType: UsernameType)
     
     public var shortErrorMessage: String {
         
@@ -30,6 +31,8 @@ public enum HTTPAPIError: Error {
         case .urlSessionUnexpectedResponse(_, let operationLabel):
             return self.getShortErrorMessage(operationLabel: operationLabel)
         case .retrieveRefreshTokenFromKeychain(_, let operationLabel):
+            return self.getShortErrorMessage(operationLabel: operationLabel)
+        case .incorrectPassword(_, let operationLabel, _):
             return self.getShortErrorMessage(operationLabel: operationLabel)
         }
     }
@@ -55,6 +58,8 @@ public enum HTTPAPIError: Error {
         case .urlSessionUnexpectedResponse(_, let operationLabel):
             return operationLabel
         case .retrieveRefreshTokenFromKeychain(_, let operationLabel):
+            return operationLabel
+        case .incorrectPassword(_, let operationLabel, _):
             return operationLabel
         }
     }
@@ -92,6 +97,12 @@ public enum HTTPAPIError: Error {
             return String.localizedStringWithFormat("An unexpected NSURLSession-level error occurred when communicating with %@.", apiLabel)
         case .retrieveRefreshTokenFromKeychain(_, _):
             return String.localizedStringWithFormat("The keychain did not return the refresh token.")
+        case .incorrectPassword(let apiLabel, _, let usernameType):
+            var usernameString = String.localizedStringWithFormat("username")
+            if usernameType == UsernameType.emailAddress {
+                usernameString = String.localizedStringWithFormat("email address")
+            }
+            return String.localizedStringWithFormat("%@ rejected the %@ and password combination.", apiLabel, usernameString)
         }
         
     }

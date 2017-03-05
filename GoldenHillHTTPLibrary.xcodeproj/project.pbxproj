@@ -25,6 +25,7 @@
 		2137121A1E69CDF300961208 /* HTTPAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213712191E69CDF300961208 /* HTTPAPIErrorTests.swift */; };
 		2137121D1E6A0EBD00961208 /* CommonURLSessionDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137121C1E6A0EBD00961208 /* CommonURLSessionDelegateTests.swift */; };
 		213712251E6A23BB00961208 /* HTTPURLResponse+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213712241E6A23BB00961208 /* HTTPURLResponse+Convenience.swift */; };
+		2137122C1E6C6D3F00961208 /* UsernameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137122B1E6C6D3F00961208 /* UsernameType.swift */; };
 		21D3787E1E67298D00B985FD /* GoldenHillHTTPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */; };
 		21D378851E67298D00B985FD /* GoldenHillHTTPLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21D5F8C61E6729C000B9A70F /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D5F8C51E6729C000B9A70F /* Result.framework */; };
@@ -66,6 +67,7 @@
 		213712191E69CDF300961208 /* HTTPAPIErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPAPIErrorTests.swift; sourceTree = "<group>"; };
 		2137121C1E6A0EBD00961208 /* CommonURLSessionDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonURLSessionDelegateTests.swift; sourceTree = "<group>"; };
 		213712241E6A23BB00961208 /* HTTPURLResponse+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Convenience.swift"; sourceTree = "<group>"; };
+		2137122B1E6C6D3F00961208 /* UsernameType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameType.swift; sourceTree = "<group>"; };
 		21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoldenHillHTTPLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoldenHillHTTPLibrary.h; sourceTree = "<group>"; };
 		21D378781E67298D00B985FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				213711E71E673B6800961208 /* String+Capitalize.swift */,
 				21D5F8C71E6729E800B9A70F /* URLRequest+Convenience.swift */,
 				213711DD1E67386200961208 /* URLSession+JSONResponseHandling.swift */,
+				2137122B1E6C6D3F00961208 /* UsernameType.swift */,
 				21D378781E67298D00B985FD /* Info.plist */,
 			);
 			path = GoldenHillHTTPLibrary;
@@ -352,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2137122C1E6C6D3F00961208 /* UsernameType.swift in Sources */,
 				213711E21E6739C600961208 /* HTTPAPIError.swift in Sources */,
 				21D5F8C81E6729E800B9A70F /* URLRequest+Convenience.swift in Sources */,
 				213711E61E673ACD00961208 /* HTTPAPIResult.swift in Sources */,

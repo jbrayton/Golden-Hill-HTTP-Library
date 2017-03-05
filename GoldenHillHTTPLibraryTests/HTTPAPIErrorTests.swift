@@ -11,7 +11,7 @@ import XCTest
 
 class HTTPAPIErrorTests: XCTestCase {
     
-    func testExample() {
+    func testMessages() {
         let nserror = NSError(domain: "foo", code: 100, userInfo: [NSLocalizedDescriptionKey: "yo"])
         var error = HTTPAPIError.connection(apiLabel: "Gmail", operationLabel: "reauthenticate", error: nserror)
         XCTAssertEqual(error.combinedErrorMessage, "Unable to reauthenticate. Could not connect to Gmail. yo")
@@ -60,6 +60,12 @@ class HTTPAPIErrorTests: XCTestCase {
         
         error = HTTPAPIError.statusCode(apiLabel: "Gmail", operationLabel: "create filter after deleting old version", statusCode: 401)
         XCTAssertEqual(error.combinedErrorMessage, "Unable to create filter after deleting old version. Gmail did not accept the credentials. Please try logging out and logging back in.")
+        
+        error = HTTPAPIError.incorrectPassword(apiLabel: "Feed Wrangler", operationLabel: "log in", usernameType: .emailAddress)
+        XCTAssertEqual(error.detailedErrorMessage, "Feed Wrangler rejected the email address and password combination.")
+        
+        error = HTTPAPIError.incorrectPassword(apiLabel: "Gmail", operationLabel: "log in", usernameType: .username)
+        XCTAssertEqual(error.detailedErrorMessage, "Gmail rejected the username and password combination.")
     }
     
     func testConvertToSentence() {
