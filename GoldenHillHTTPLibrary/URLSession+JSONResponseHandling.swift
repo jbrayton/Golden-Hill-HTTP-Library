@@ -58,7 +58,7 @@ public extension URLSession {
         })
     }
 
-    func ghs_completionHandler( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, errorMessageInterpreter: @escaping ErrorMessageInterpreter, handler: @escaping HTTPAPIResultHandler<Void> ) {
+    public func ghs_completionHandler( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, errorMessageInterpreter: @escaping ErrorMessageInterpreter, handler: @escaping HTTPAPIResultHandler<Void> ) {
         if let httpResponse = response as? HTTPURLResponse {
             // Allow almost any 2xx status code here.
             if ((httpResponse.statusCode == 200) || (httpResponse.statusCode == 201) || (httpResponse.statusCode == 202) || (httpResponse.statusCode == 204)) {
@@ -81,7 +81,7 @@ public extension URLSession {
         }
     }
 
-    func ghs_completionHandlerWithJson<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter, handler: (Result<T,HTTPAPIError>) -> Void ) {
+    public func ghs_completionHandlerWithJson<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter, handler: (Result<T,HTTPAPIError>) -> Void ) {
         if let httpResponse = response as? HTTPURLResponse {
             if httpResponse.statusCode == 200 {
                 if let d = data {
