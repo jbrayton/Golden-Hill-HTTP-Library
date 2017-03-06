@@ -117,7 +117,7 @@ public extension URLSession {
     }
 
     private func ghs_parsePotentialError( httpResponse: HTTPURLResponse, data: Data, errorMessageInterpreter: ErrorMessageInterpreter ) -> String? {
-        guard httpResponse.mimeType == "application/json" else {
+        guard httpResponse.mimeType == "application/json" || httpResponse.mimeType == "text/json" else {
             return nil
         }
         guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) else {
