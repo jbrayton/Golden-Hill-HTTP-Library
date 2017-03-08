@@ -160,13 +160,32 @@
 		213712361E70784100961208 /* Integration Tests */ = {
 			isa = PBXGroup;
 			children = (
-				213712401E707B0500961208 /* SimpleURLSessionDelegateTests.swift */,
 				213712481E70859700961208 /* PinningURLSessionDelegateTests.swift */,
+				213712401E707B0500961208 /* SimpleURLSessionDelegateTests.swift */,
 				21771BB01E7091DD00C923EF /* marcato-api.der */,
 				213712391E70784100961208 /* Info.plist */,
 			);
 			name = "Integration Tests";
 			path = IntegrationTests;
+			sourceTree = "<group>";
+		};
+		21771BB21E70953E00C923EF /* Session Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				2137124A1E7088B800961208 /* FollowRedirects.swift */,
+				213711D91E67373400961208 /* SimpleURLSessionDelegate.swift */,
+				2137122F1E70773900961208 /* PinningURLSessionDelegate.swift */,
+			);
+			name = "Session Delegates";
+			sourceTree = "<group>";
+		};
+		21771BB31E70955800C923EF /* Request and Response */ = {
+			isa = PBXGroup;
+			children = (
+				213712241E6A23BB00961208 /* HTTPURLResponse+Convenience.swift */,
+				21D5F8C71E6729E800B9A70F /* URLRequest+Convenience.swift */,
+			);
+			name = "Request and Response";
 			sourceTree = "<group>";
 		};
 		21D3786A1E67298D00B985FD = {
@@ -196,15 +215,12 @@
 			isa = PBXGroup;
 			children = (
 				21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */,
-				213711D91E67373400961208 /* SimpleURLSessionDelegate.swift */,
-				2137124A1E7088B800961208 /* FollowRedirects.swift */,
-				2137122F1E70773900961208 /* PinningURLSessionDelegate.swift */,
+				21771BB21E70953E00C923EF /* Session Delegates */,
+				21771BB31E70955800C923EF /* Request and Response */,
 				213711E11E6739C600961208 /* HTTPAPIError.swift */,
 				213711E51E673ACD00961208 /* HTTPAPIResult.swift */,
-				213712241E6A23BB00961208 /* HTTPURLResponse+Convenience.swift */,
 				213711DF1E67393400961208 /* NetworkNotifications.swift */,
 				213711E71E673B6800961208 /* String+Capitalize.swift */,
-				21D5F8C71E6729E800B9A70F /* URLRequest+Convenience.swift */,
 				213711DD1E67386200961208 /* URLSession+JSONResponseHandling.swift */,
 				2137122B1E6C6D3F00961208 /* UsernameType.swift */,
 				21D378781E67298D00B985FD /* Info.plist */,
@@ -215,8 +231,8 @@
 		21D378811E67298D00B985FD /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				2137121C1E6A0EBD00961208 /* SimpleURLSessionDelegate.swift */,
 				213712191E69CDF300961208 /* HTTPAPIErrorTests.swift */,
+				2137121C1E6A0EBD00961208 /* SimpleURLSessionDelegate.swift */,
 				213711E91E6770D400961208 /* URLSessionResponseHandlingTests.swift */,
 				21D378841E67298D00B985FD /* Info.plist */,
 			);

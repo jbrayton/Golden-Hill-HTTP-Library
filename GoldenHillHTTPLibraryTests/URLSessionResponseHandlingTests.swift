@@ -58,7 +58,7 @@ class URLSessionResponseHandlingTests : XCTestCase {
     private func assertError<T>( request: URLRequest, apiLabel: String, operationLabel: String, jsonResponseInterpreter: @escaping (Any) -> T?, errorMessageInterpreter: @escaping (Any) -> String?, data: Data?, response: URLResponse?, error: Error?, expectedErrorMessage: String, file: StaticString, line: UInt ) {
         
         let expectation = self.expectation(description: "test")
-        self.urlSession.ghs_completionHandlerWithJson(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, jsonResponseInterpreter: jsonResponseInterpreter, errorMessageInterpreter: errorMessageInterpreter) { (result) in
+        self.urlSession.ghs_completionHandler(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, jsonResponseInterpreter: jsonResponseInterpreter, errorMessageInterpreter: errorMessageInterpreter) { (result) in
             switch result {
             case .success:
                 XCTFail(file: file, line: line)
@@ -74,7 +74,7 @@ class URLSessionResponseHandlingTests : XCTestCase {
     private func assertError( request: URLRequest, apiLabel: String, operationLabel: String, errorMessageInterpreter: @escaping (Any) -> String?, data: Data?, response: URLResponse?, error: Error?, expectedErrorMessage: String, file: StaticString, line: UInt ) {
         
         let expectation = self.expectation(description: "test")
-        self.urlSession.ghs_completionHandler(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, errorMessageInterpreter: errorMessageInterpreter) { (result) in
+        self.urlSession.ghs_completionHandler(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, jsonResponseInterpreter: URLSession.self.ghs_voidJsonInterpreter, errorMessageInterpreter: errorMessageInterpreter) { (result) in
             switch result {
             case .success:
                 XCTFail(file: file, line: line)
@@ -94,7 +94,7 @@ class URLSessionResponseHandlingTests : XCTestCase {
         // Successful case
         let successfulExpectation = self.expectation(description: "success")
         
-        self.urlSession.ghs_completionHandlerWithJson(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: successfulResponse, error: nil, jsonResponseInterpreter: self.simpleSuccessfulParser, errorMessageInterpreter: self.errorMessageInterpreterReturningNil) { (result) in
+        self.urlSession.ghs_completionHandler(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: successfulResponse, error: nil, jsonResponseInterpreter: self.simpleSuccessfulParser, errorMessageInterpreter: self.errorMessageInterpreterReturningNil) { (result) in
             switch result {
             case .success:
                 break
@@ -113,7 +113,7 @@ class URLSessionResponseHandlingTests : XCTestCase {
             // Successful case
             let successfulExpectation = self.expectation(description: "success")
             
-            self.urlSession.ghs_completionHandler(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: successfulResponse, error: nil, errorMessageInterpreter: self.errorMessageInterpreterReturningNil) { (result) in
+            self.urlSession.ghs_completionHandler(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: successfulResponse, error: nil, jsonResponseInterpreter: URLSession.self.ghs_voidJsonInterpreter, errorMessageInterpreter: self.errorMessageInterpreterReturningNil) { (result) in
                 switch result {
                 case .success:
                     break
@@ -134,7 +134,7 @@ class URLSessionResponseHandlingTests : XCTestCase {
             // Successful case
             let successfulExpectation = self.expectation(description: "success")
             
-            self.urlSession.ghs_completionHandler(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", data: nil, response: successfulResponse, error: nil, errorMessageInterpreter: self.errorMessageInterpreterReturningNil) { (result) in
+            self.urlSession.ghs_completionHandler(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", data: nil, response: successfulResponse, error: nil, jsonResponseInterpreter: URLSession.self.ghs_voidJsonInterpreter, errorMessageInterpreter: self.errorMessageInterpreterReturningNil) { (result) in
                 switch result {
                 case .success:
                     break
