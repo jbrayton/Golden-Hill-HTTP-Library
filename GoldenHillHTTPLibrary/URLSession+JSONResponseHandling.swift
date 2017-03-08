@@ -83,6 +83,11 @@ public extension URLSession {
 
     public func ghs_completionHandlerWithJson<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter, handler: (Result<T,HTTPAPIError>) -> Void ) {
         if let httpResponse = response as? HTTPURLResponse {
+            if (T.self == Void.self) {
+                if ((httpResponse.statusCode == 200) || (httpResponse.statusCode == 201) || (httpResponse.statusCode == 202) || (httpResponse.statusCode == 204)) {
+                    handler(Result.success(Swift.Void as! T))
+                }
+            }
             if httpResponse.statusCode == 200 {
                 if let d = data {
                     let jsonParsed = try? JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions())

@@ -38,6 +38,16 @@
                ReferencedContainer = "container:GoldenHillHTTPLibrary.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "213712341E70784100961208"
+               BuildableName = "IntegrationTests.xctest"
+               BlueprintName = "IntegrationTests"
+               ReferencedContainer = "container:GoldenHillHTTPLibrary.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

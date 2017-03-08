@@ -1,5 +1,5 @@
 //
-//  CommonURLSessionDelegateTests.swift
+//  SimpleURLSessionDelegateTests.swift
 //  GoldenHillHTTPLibrary
 //
 //  Created by John Brayton on 3/3/17.
@@ -9,10 +9,10 @@
 import XCTest
 @testable import GoldenHillHTTPLibrary
 
-class CommonURLSessionDelegateTests: XCTestCase {
+class SimpleURLSessionDelegateTests: XCTestCase {
     
     func testIsHttps() {
-        let delegate = CommonURLSessionDelegate(followRedirects: .always, certificateUrls: nil)
+        let delegate = SimpleURLSessionDelegate(followRedirects: .always)
         
         XCTAssertTrue(delegate.isHttps(url: URL(string: "https://www.goldenhillsoftware.com/")!))
         XCTAssertTrue(delegate.isHttps(url: URL(string: "htTPS://www.goldenhillsoftware.com/")!))
@@ -27,7 +27,7 @@ class CommonURLSessionDelegateTests: XCTestCase {
         let httpsUrl = URL(string: "https://www.goldenhillsoftware.com/")!
         let nilUrl: URL? = nil
         
-        var delegate = CommonURLSessionDelegate(followRedirects: .always, certificateUrls: nil)
+        var delegate = SimpleURLSessionDelegate(followRedirects: .always)
         XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpUrl))
         XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpsUrl))
         XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: nilUrl))
@@ -38,7 +38,7 @@ class CommonURLSessionDelegateTests: XCTestCase {
         XCTAssertTrue(delegate.followRedirect(fromUrl: nilUrl, toUrl: httpsUrl))
         XCTAssertTrue(delegate.followRedirect(fromUrl: nilUrl, toUrl: nilUrl))
         
-        delegate = CommonURLSessionDelegate(followRedirects: .never, certificateUrls: nil)
+        delegate = SimpleURLSessionDelegate(followRedirects: .never)
         XCTAssertFalse(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpUrl))
         XCTAssertFalse(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpsUrl))
         XCTAssertFalse(delegate.followRedirect(fromUrl: httpUrl, toUrl: nilUrl))
@@ -49,7 +49,7 @@ class CommonURLSessionDelegateTests: XCTestCase {
         XCTAssertFalse(delegate.followRedirect(fromUrl: nilUrl, toUrl: httpsUrl))
         XCTAssertFalse(delegate.followRedirect(fromUrl: nilUrl, toUrl: nilUrl))
         
-        delegate = CommonURLSessionDelegate(followRedirects: .httpsOnly, certificateUrls: nil)
+        delegate = SimpleURLSessionDelegate(followRedirects: .httpsOnly)
         XCTAssertFalse(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpUrl))
         XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpsUrl))
         XCTAssertFalse(delegate.followRedirect(fromUrl: httpUrl, toUrl: nilUrl))
@@ -60,7 +60,7 @@ class CommonURLSessionDelegateTests: XCTestCase {
         XCTAssertTrue(delegate.followRedirect(fromUrl: nilUrl, toUrl: httpsUrl))
         XCTAssertFalse(delegate.followRedirect(fromUrl: nilUrl, toUrl: nilUrl))
         
-        delegate = CommonURLSessionDelegate(followRedirects: .httpsOnlyWhenFromHttps, certificateUrls: nil)
+        delegate = SimpleURLSessionDelegate(followRedirects: .httpsOnlyWhenFromHttps)
         XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpUrl))
         XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: httpsUrl))
         XCTAssertTrue(delegate.followRedirect(fromUrl: httpUrl, toUrl: nilUrl))
