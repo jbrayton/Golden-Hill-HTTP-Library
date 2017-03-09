@@ -14,6 +14,10 @@ public class PinningURLSessionDelegate: SimpleURLSessionDelegate {
     
     let certificateUrls: [URL]
 
+    /*
+        The certificateUrls should be an array of URL objects from the app bundle. The certificates
+        must be in DER format.
+    */
     public init( followRedirects: FollowRedirects, certificateUrls: [URL] ) {
         self.certificateUrls = certificateUrls
         super.init(followRedirects: followRedirects)

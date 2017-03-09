@@ -9,18 +9,12 @@
 import Foundation
 
 
-public enum RedirectType {
-    case temporary
-    case permanent
-    case none
-}
-
 public extension HTTPURLResponse {
     
-    public func ghs_value(forHeaderNamed x: String) -> String? {
+    public func ghs_value(forHeaderNamed requestedHeaderName: String) -> String? {
         for (name, value) in self.allHeaderFields {
             if let headerName = name as? String, let headerValue = value as? String {
-                if headerName.lowercased() == x.lowercased() {
+                if headerName.lowercased() == requestedHeaderName.lowercased() {
                     return headerValue
                 }
             }

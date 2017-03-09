@@ -9,11 +9,12 @@
 import Foundation
 import Result
 
+public typealias ErrorMessageInterpreter = (Any) -> String?
+
+public typealias JsonResponseInterpreter<T> = (Any) -> T?
+
 public extension URLSession {
     
-    typealias ErrorMessageInterpreter = (Any) -> String?
-
-    typealias JsonResponseInterpreter<T> = (Any) -> T?
     
     static let ghs_jsonContentTypes = ["application/json", "text/json"]
     static let ghs_successfulStatusCodesNoContent = [200, 201, 202, 204]
@@ -38,7 +39,7 @@ public extension URLSession {
        could be found in the response.
      * handler: Will be called when completed with either a success response or an error response.
      */
-    public func ghs_dataTask<T>( request: URLRequest, apiLabel: String, operationLabel: String, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping (Result<T,HTTPAPIError>) -> Void ) -> URLSessionDataTask {
+    public func ghs_dataTask<T>( request: URLRequest, apiLabel: String, operationLabel: String, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<T> ) -> URLSessionDataTask {
         NotificationCenter.default.post(name: NetworkNotifications.starting, object: nil)
         return self.dataTask(with: request, completionHandler: {[unowned self](data, response, error) in
             self.ghs_completionHandler(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, jsonResponseInterpreter: jsonResponseInterpreter, errorMessageInterpreter: errorMessageInterpreter, handler: handler)

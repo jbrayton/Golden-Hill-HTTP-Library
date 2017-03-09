@@ -10,7 +10,7 @@ import Foundation
 
 public class NetworkNotifications {
     
-    public static let starting = Notification.Name("com.goldenhillsoftware.Filters.startingNetwork")
-    public static let finishing = Notification.Name("com.goldenhillsoftware.Filters.finishingNetwork")
+    public static let starting = Notification.Name("com.goldenhillsoftware.httplibrary.startingNetwork")
+    public static let finishing = Notification.Name("com.goldenhillsoftware.httplibrary.finishingNetwork")
     
 }

@@ -10,7 +10,6 @@ import Foundation
 
 public class SimpleURLSessionDelegate: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
     
-    
     let followRedirects: FollowRedirects
     
     public init( followRedirects: FollowRedirects ) {
