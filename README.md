@@ -7,6 +7,10 @@ This library provides functionality to make working with HTTP APIs easier. Speci
 * TLS/SSL Pinning.
 * Convenience methods on URLRequest and HTTPURLResponse.
 
+To use with Carthage, add this to Cartfile:
+
+    github "jbrayton/Golden-Hill-HTTP-Library" "1.0"
+
 ## URLSession Extension
 
 The URLSession extension provides methods that remove the tedious work of determining whether a response was received, whether the status code indicates that the response was successful, and converting a JSON response into a JSON object.
