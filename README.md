@@ -1,6 +1,11 @@
 # Golden Hill HTTP Library
 
-This library provides functionality to make working with HTTP APIs easier.
+This library provides functionality to make working with HTTP APIs easier. Specifically, it provides:
+
+* Simplified error management functionality on HTTP requests (connection errors, HTTP status codes, JSON deserialization errors).
+* The ability to disable redirects, to only allow redirects to HTTPS URLs, or to only allow redirects to HTTPS URLs when redirected from an HTTPS URL.
+* TLS/SSL Pinning.
+* Convenience methods on URLRequest and HTTPURLResponse.
 
 ## URLSession Extension
 
@@ -46,6 +51,33 @@ HTTPAPIError error objects contain these variables:
     
 In general, *shortErrorMessage* indicates that an operation could not be performed, *detailedErrorMessage* provides the reason that the operation could not be performed, and *combinedErrorMessage* concatenates the two together. If you are presenting an error in a UIAlertController, you might use the shortErrorMessage as the title and the *detailedErrorMessage* as the message. If you need one long string describing the situation, you would use *combinedErrorMessage* instead.
 
+For an example of this in action, here is a method that retrieves a list of subscriptions from a user's Feedbin account:
+
+    func getSubscriptionList( credential: Credential, handler: @escaping HTTPAPIResultHandler<[Subscription]> ) {
+        let urlString = "https://api.feedbin.com/v2/subscriptions.json"
+        var request = URLRequest(url: URL.ghs_from(string: urlString)!)
+        
+        // The ghs_setBasicAuth extension method is described further down.
+        request.ghs_setBasicAuth(username: credential.username, password: credential.password)
+
+        let dataTask = self.urlSession.ghs_dataTask(request: request, apiLabel: String.localizedStringWithFormat("Feedbin"), operationLabel: String.localizedStringWithFormat("retrieve subscription list"), jsonResponseInterpreter: self.parseFeedList, handler: handler)
+
+        dataTask.resume()
+    }
+
+The JSON response interpreter, interpretSubscriptionList(Any), is a separate function that is thoroughly unit tested and that returns an array of Subscription objects. 
+
+This code will unsubscribe the user from a subscription:
+
+    public func unsubscribe( credential: Credential, subscription: Subscription, handler: @escaping HTTPAPIResultHandler<Void> ) {
+        var request = URLRequest(url: URL.ghs_from(string: "https://newsblur.com/reader/delete_feed")!)
+        self.add(credential: credential, toRequest: &request)
+        request.ghs_setPostArgString(String(format: "feed_id=%@", arguments: [subscription.subscriptionId]))
+        let dataTask = self.urlSession.ghs_dataTask(request: request, apiLabel: String.localizedStringWithFormat("Feedbin"), operationLabel: String.localizedStringWithFormat("unsubscribe"), handler: handler)
+        dataTask.resume()
+    }
+
+In both cases the work of checking for an HTTP-level error, checking the status code, and checking the success of deserializing the JSON into a Swift object, and generating any appropriate error messages is done by this library.
 
 ## URLRequest Extension
 
