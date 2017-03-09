@@ -2,7 +2,7 @@
 
 This library provides functionality to make working with HTTP APIs easier. Specifically, it provides:
 
-* Simplified error management functionality on HTTP requests (connection errors, HTTP status codes, JSON deserialization errors).
+* Consolidated error handling functionality for HTTP requests (connection errors, HTTP status codes, JSON deserialization and interpretation errors).
 * The ability to disable redirects, to only allow redirects to HTTPS URLs, or to only allow redirects to HTTPS URLs when redirected from an HTTPS URL.
 * TLS/SSL Pinning.
 * Convenience methods on URLRequest and HTTPURLResponse.
