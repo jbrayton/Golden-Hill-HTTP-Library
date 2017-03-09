@@ -52,7 +52,7 @@ These are the parameters to these methods:
 
 **errorMessageInterpreter**: If the web service returns a 4xx or 5xx error and a JSON response body, this method will be called asking it to return a string describing the error based on that response body. This is useful for web services that embed error messages in JSON 4xx and 5xx responses. If this parameter is not specified or if the error message interpreter returns nil, an error message will be generated without it.
 
-**handler**: A method that will accept the result of the request. The result object is based on the [Result](https://github.com/antitypical/Result) library. The result will be of type `HTTPAPIResult<T>`. If successful and jsonResponseInterpreter returns an object, the Result object will have the result returned by jsonResultInterpreter. If successful and no jsonResponseInterpreter is specified, the Result object will be `HTTPAPIResult<Void>` with Void as the payload. If a failure occurs, the Result object will be a failure with an HTTPAPIError.
+**handler**: A method that will accept the result of the request. The result object is based on the [Result](https://github.com/antitypical/Result) library. The result will be of type `HTTPAPIResult<T>`. If successful and jsonResponseInterpreter returns an object, the Result object will have the result returned by jsonResultInterpreter. If successful and no jsonResponseInterpreter is specified, the Result object will be `HTTPAPIResult<Void>`. If a failure occurs, the Result object will be a failure with an HTTPAPIError.
 
 Some relevant type aliases:
 
@@ -114,7 +114,7 @@ public func unsubscribe( credential: Credential,
 }
 ```
 
-In both cases the work of validating that a response is received and that it has a successful status code is done by the library. In getSubscriptionList(...) the work of deserializing the JSON response is and sending it to the interpretSubscriptionList method is also done by the library.
+In both cases the work of validating that a response is received and that it has a successful status code is done by the library. In getSubscriptionList(...) the work of deserializing the JSON response and sending it to the interpretSubscriptionList method is also done by the library.
 
 ## URLRequest Extension
 
@@ -196,7 +196,7 @@ public enum FollowRedirects {
 
 ### PinningURLSessionDelegate
 
-PinningURLSessionDelegate provides SSL pinning functionality and the same redirect management that PinningURLSessionDelegate provides. The PinningURLSessionDelegate requires that the app have a local copy of allowed certificates in DER format.
+PinningURLSessionDelegate provides SSL pinning functionality and the same redirect management that SimpleURLSessionDelegate provides. The PinningURLSessionDelegate requires that the app have a local copy of allowed certificates in DER format.
 
 This is the class declaration:
 
