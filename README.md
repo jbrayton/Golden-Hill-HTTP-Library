@@ -141,7 +141,7 @@ This is the declaration of FollowRedirects:
 
 ### PinningURLSessionDelegate
 
-PinningURLSessionDelegate provides SSL pinning functionality and the same redirect management that SimpleURLSessionDelegate provides. The SimpleURLSessionDelegate requires that the app have a local copy of allowed certificates in DER format.
+PinningURLSessionDelegate provides SSL pinning functionality and the same redirect management that PinningURLSessionDelegate provides. The PinningURLSessionDelegate requires that the app have a local copy of allowed certificates in DER format.
 
 This is the class declaration:
 
