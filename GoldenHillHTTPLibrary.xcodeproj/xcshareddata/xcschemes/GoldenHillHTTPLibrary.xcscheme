@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "21D3787C1E67298D00B985FD"
-               BuildableName = "GoldenHillHTTPLibraryTests.xctest"
-               BlueprintName = "GoldenHillHTTPLibraryTests"
+               BuildableName = "Unit Tests.xctest"
+               BlueprintName = "Unit Tests"
                ReferencedContainer = "container:GoldenHillHTTPLibrary.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "213712341E70784100961208"
-               BuildableName = "IntegrationTests.xctest"
-               BlueprintName = "IntegrationTests"
+               BuildableName = "Integration Tests.xctest"
+               BlueprintName = "Integration Tests"
                ReferencedContainer = "container:GoldenHillHTTPLibrary.xcodeproj">
             </BuildableReference>
          </TestableReference>

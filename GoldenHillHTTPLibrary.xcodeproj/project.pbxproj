@@ -13,7 +13,6 @@
 		213711E21E6739C600961208 /* HTTPAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711E11E6739C600961208 /* HTTPAPIError.swift */; };
 		213711E61E673ACD00961208 /* HTTPAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711E51E673ACD00961208 /* HTTPAPIResult.swift */; };
 		213711E81E673B6800961208 /* String+Capitalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711E71E673B6800961208 /* String+Capitalize.swift */; };
-		213711EA1E6770D500961208 /* URLSessionResponseHandlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711E91E6770D400961208 /* URLSessionResponseHandlingTests.swift */; };
 		213711EB1E67751200961208 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D5F8C51E6729C000B9A70F /* Result.framework */; };
 		213711F31E67769100961208 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711F21E67769100961208 /* AppDelegate.swift */; };
 		213711F51E67769100961208 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711F41E67769100961208 /* ViewController.swift */; };
@@ -22,17 +21,18 @@
 		213711FD1E67769100961208 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213711FB1E67769100961208 /* LaunchScreen.storyboard */; };
 		213712121E677DB800961208 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D5F8C51E6729C000B9A70F /* Result.framework */; };
 		213712131E677DF300961208 /* GoldenHillHTTPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */; };
-		2137121A1E69CDF300961208 /* HTTPAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213712191E69CDF300961208 /* HTTPAPIErrorTests.swift */; };
-		2137121D1E6A0EBD00961208 /* SimpleURLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137121C1E6A0EBD00961208 /* SimpleURLSessionDelegate.swift */; };
 		213712251E6A23BB00961208 /* HTTPURLResponse+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213712241E6A23BB00961208 /* HTTPURLResponse+Convenience.swift */; };
 		2137122C1E6C6D3F00961208 /* UsernameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137122B1E6C6D3F00961208 /* UsernameType.swift */; };
 		213712301E70773900961208 /* PinningURLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137122F1E70773900961208 /* PinningURLSessionDelegate.swift */; };
 		2137123A1E70784100961208 /* GoldenHillHTTPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */; };
-		213712421E707B2F00961208 /* SimpleURLSessionDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213712401E707B0500961208 /* SimpleURLSessionDelegateTests.swift */; };
 		213712431E707D6000961208 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D5F8C51E6729C000B9A70F /* Result.framework */; };
-		213712491E70859700961208 /* PinningURLSessionDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213712481E70859700961208 /* PinningURLSessionDelegateTests.swift */; };
 		2137124B1E7088B800961208 /* FollowRedirects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137124A1E7088B800961208 /* FollowRedirects.swift */; };
-		21771BB11E7091DD00C923EF /* marcato-api.der in Resources */ = {isa = PBXBuildFile; fileRef = 21771BB01E7091DD00C923EF /* marcato-api.der */; };
+		21771BB91E70E8BB00C923EF /* marcato-api.der in Resources */ = {isa = PBXBuildFile; fileRef = 21771BB51E70E8BB00C923EF /* marcato-api.der */; };
+		21771BBA1E70E8BB00C923EF /* PinningURLSessionDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771BB61E70E8BB00C923EF /* PinningURLSessionDelegateTests.swift */; };
+		21771BBB1E70E8BB00C923EF /* SimpleURLSessionDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771BB71E70E8BB00C923EF /* SimpleURLSessionDelegateTests.swift */; };
+		21771BC81E70E96B00C923EF /* HTTPAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771BC41E70E96B00C923EF /* HTTPAPIErrorTests.swift */; };
+		21771BCA1E70E96B00C923EF /* SimpleURLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771BC61E70E96B00C923EF /* SimpleURLSessionDelegate.swift */; };
+		21771BCB1E70E96B00C923EF /* URLSessionResponseHandlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771BC71E70E96B00C923EF /* URLSessionResponseHandlingTests.swift */; };
 		21D3787E1E67298D00B985FD /* GoldenHillHTTPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */; };
 		21D378851E67298D00B985FD /* GoldenHillHTTPLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21D5F8C61E6729C000B9A70F /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D5F8C51E6729C000B9A70F /* Result.framework */; };
@@ -77,7 +77,6 @@
 		213711E11E6739C600961208 /* HTTPAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPAPIError.swift; sourceTree = "<group>"; };
 		213711E51E673ACD00961208 /* HTTPAPIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPAPIResult.swift; sourceTree = "<group>"; };
 		213711E71E673B6800961208 /* String+Capitalize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Capitalize.swift"; sourceTree = "<group>"; };
-		213711E91E6770D400961208 /* URLSessionResponseHandlingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionResponseHandlingTests.swift; sourceTree = "<group>"; };
 		213711F01E67769100961208 /* HostApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HostApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		213711F21E67769100961208 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		213711F41E67769100961208 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,22 +84,23 @@
 		213711F91E67769100961208 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		213711FC1E67769100961208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		213711FE1E67769100961208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		213712191E69CDF300961208 /* HTTPAPIErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPAPIErrorTests.swift; sourceTree = "<group>"; };
-		2137121C1E6A0EBD00961208 /* SimpleURLSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleURLSessionDelegate.swift; sourceTree = "<group>"; };
 		213712241E6A23BB00961208 /* HTTPURLResponse+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Convenience.swift"; sourceTree = "<group>"; };
 		2137122B1E6C6D3F00961208 /* UsernameType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameType.swift; sourceTree = "<group>"; };
 		2137122F1E70773900961208 /* PinningURLSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinningURLSessionDelegate.swift; sourceTree = "<group>"; };
-		213712351E70784100961208 /* IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		213712391E70784100961208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		213712401E707B0500961208 /* SimpleURLSessionDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleURLSessionDelegateTests.swift; sourceTree = "<group>"; };
-		213712481E70859700961208 /* PinningURLSessionDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinningURLSessionDelegateTests.swift; sourceTree = "<group>"; };
+		213712351E70784100961208 /* Integration Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Integration Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2137124A1E7088B800961208 /* FollowRedirects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowRedirects.swift; sourceTree = "<group>"; };
-		21771BB01E7091DD00C923EF /* marcato-api.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "marcato-api.der"; sourceTree = "<group>"; };
+		21771BB41E70E8BB00C923EF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Integration Tests/Info.plist"; sourceTree = SOURCE_ROOT; };
+		21771BB51E70E8BB00C923EF /* marcato-api.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = "marcato-api.der"; path = "Integration Tests/marcato-api.der"; sourceTree = SOURCE_ROOT; };
+		21771BB61E70E8BB00C923EF /* PinningURLSessionDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PinningURLSessionDelegateTests.swift; path = "Integration Tests/PinningURLSessionDelegateTests.swift"; sourceTree = SOURCE_ROOT; };
+		21771BB71E70E8BB00C923EF /* SimpleURLSessionDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleURLSessionDelegateTests.swift; path = "Integration Tests/SimpleURLSessionDelegateTests.swift"; sourceTree = SOURCE_ROOT; };
+		21771BC41E70E96B00C923EF /* HTTPAPIErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPAPIErrorTests.swift; path = "Unit Tests/HTTPAPIErrorTests.swift"; sourceTree = SOURCE_ROOT; };
+		21771BC51E70E96B00C923EF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Unit Tests/Info.plist"; sourceTree = SOURCE_ROOT; };
+		21771BC61E70E96B00C923EF /* SimpleURLSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleURLSessionDelegate.swift; path = "Unit Tests/SimpleURLSessionDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		21771BC71E70E96B00C923EF /* URLSessionResponseHandlingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLSessionResponseHandlingTests.swift; path = "Unit Tests/URLSessionResponseHandlingTests.swift"; sourceTree = SOURCE_ROOT; };
 		21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoldenHillHTTPLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D378771E67298D00B985FD /* GoldenHillHTTPLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoldenHillHTTPLibrary.h; sourceTree = "<group>"; };
 		21D378781E67298D00B985FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21D3787D1E67298D00B985FD /* GoldenHillHTTPLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenHillHTTPLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		21D378841E67298D00B985FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21D3787D1E67298D00B985FD /* Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D5F8C51E6729C000B9A70F /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		21D5F8C71E6729E800B9A70F /* URLRequest+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,10 +160,10 @@
 		213712361E70784100961208 /* Integration Tests */ = {
 			isa = PBXGroup;
 			children = (
-				213712481E70859700961208 /* PinningURLSessionDelegateTests.swift */,
-				213712401E707B0500961208 /* SimpleURLSessionDelegateTests.swift */,
-				21771BB01E7091DD00C923EF /* marcato-api.der */,
-				213712391E70784100961208 /* Info.plist */,
+				21771BB41E70E8BB00C923EF /* Info.plist */,
+				21771BB51E70E8BB00C923EF /* marcato-api.der */,
+				21771BB61E70E8BB00C923EF /* PinningURLSessionDelegateTests.swift */,
+				21771BB71E70E8BB00C923EF /* SimpleURLSessionDelegateTests.swift */,
 			);
 			name = "Integration Tests";
 			path = IntegrationTests;
@@ -204,9 +204,9 @@
 			isa = PBXGroup;
 			children = (
 				21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */,
-				21D3787D1E67298D00B985FD /* GoldenHillHTTPLibraryTests.xctest */,
+				21D3787D1E67298D00B985FD /* Unit Tests.xctest */,
 				213711F01E67769100961208 /* HostApp.app */,
-				213712351E70784100961208 /* IntegrationTests.xctest */,
+				213712351E70784100961208 /* Integration Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,10 +231,10 @@
 		21D378811E67298D00B985FD /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				213712191E69CDF300961208 /* HTTPAPIErrorTests.swift */,
-				2137121C1E6A0EBD00961208 /* SimpleURLSessionDelegate.swift */,
-				213711E91E6770D400961208 /* URLSessionResponseHandlingTests.swift */,
-				21D378841E67298D00B985FD /* Info.plist */,
+				21771BC51E70E96B00C923EF /* Info.plist */,
+				21771BC41E70E96B00C923EF /* HTTPAPIErrorTests.swift */,
+				21771BC61E70E96B00C923EF /* SimpleURLSessionDelegate.swift */,
+				21771BC71E70E96B00C923EF /* URLSessionResponseHandlingTests.swift */,
 			);
 			name = "Unit Tests";
 			path = GoldenHillHTTPLibraryTests;
@@ -280,9 +280,9 @@
 			productReference = 213711F01E67769100961208 /* HostApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		213712341E70784100961208 /* IntegrationTests */ = {
+		213712341E70784100961208 /* Integration Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2137123D1E70784100961208 /* Build configuration list for PBXNativeTarget "IntegrationTests" */;
+			buildConfigurationList = 2137123D1E70784100961208 /* Build configuration list for PBXNativeTarget "Integration Tests" */;
 			buildPhases = (
 				213712311E70784100961208 /* Sources */,
 				213712321E70784100961208 /* Frameworks */,
@@ -294,9 +294,9 @@
 				2137123C1E70784100961208 /* PBXTargetDependency */,
 				213712451E707D8C00961208 /* PBXTargetDependency */,
 			);
-			name = IntegrationTests;
+			name = "Integration Tests";
 			productName = IntegrationTests;
-			productReference = 213712351E70784100961208 /* IntegrationTests.xctest */;
+			productReference = 213712351E70784100961208 /* Integration Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		21D378731E67298D00B985FD /* GoldenHillHTTPLibrary */ = {
@@ -317,9 +317,9 @@
 			productReference = 21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		21D3787C1E67298D00B985FD /* GoldenHillHTTPLibraryTests */ = {
+		21D3787C1E67298D00B985FD /* Unit Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21D3788B1E67298D00B985FD /* Build configuration list for PBXNativeTarget "GoldenHillHTTPLibraryTests" */;
+			buildConfigurationList = 21D3788B1E67298D00B985FD /* Build configuration list for PBXNativeTarget "Unit Tests" */;
 			buildPhases = (
 				21D378791E67298D00B985FD /* Sources */,
 				21D3787A1E67298D00B985FD /* Frameworks */,
@@ -331,9 +331,9 @@
 				21D378801E67298D00B985FD /* PBXTargetDependency */,
 				213712111E6776E800961208 /* PBXTargetDependency */,
 			);
-			name = GoldenHillHTTPLibraryTests;
+			name = "Unit Tests";
 			productName = GoldenHillHTTPLibraryTests;
-			productReference = 21D3787D1E67298D00B985FD /* GoldenHillHTTPLibraryTests.xctest */;
+			productReference = 21D3787D1E67298D00B985FD /* Unit Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -366,6 +366,7 @@
 					21D3787C1E67298D00B985FD = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 372S63A2R8;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 213711EF1E67769100961208;
 					};
@@ -385,9 +386,9 @@
 			projectRoot = "";
 			targets = (
 				21D378731E67298D00B985FD /* GoldenHillHTTPLibrary */,
-				21D3787C1E67298D00B985FD /* GoldenHillHTTPLibraryTests */,
+				21D3787C1E67298D00B985FD /* Unit Tests */,
+				213712341E70784100961208 /* Integration Tests */,
 				213711EF1E67769100961208 /* HostApp */,
-				213712341E70784100961208 /* IntegrationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -407,7 +408,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21771BB11E7091DD00C923EF /* marcato-api.der in Resources */,
+				21771BB91E70E8BB00C923EF /* marcato-api.der in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,8 +460,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				213712421E707B2F00961208 /* SimpleURLSessionDelegateTests.swift in Sources */,
-				213712491E70859700961208 /* PinningURLSessionDelegateTests.swift in Sources */,
+				21771BBB1E70E8BB00C923EF /* SimpleURLSessionDelegateTests.swift in Sources */,
+				21771BBA1E70E8BB00C923EF /* PinningURLSessionDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,9 +487,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2137121D1E6A0EBD00961208 /* SimpleURLSessionDelegate.swift in Sources */,
-				213711EA1E6770D500961208 /* URLSessionResponseHandlingTests.swift in Sources */,
-				2137121A1E69CDF300961208 /* HTTPAPIErrorTests.swift in Sources */,
+				21771BC81E70E96B00C923EF /* HTTPAPIErrorTests.swift in Sources */,
+				21771BCB1E70E96B00C923EF /* URLSessionResponseHandlingTests.swift in Sources */,
+				21771BCA1E70E96B00C923EF /* SimpleURLSessionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,7 +580,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = IntegrationTests/Info.plist;
+				INFOPLIST_FILE = "Integration Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldenhillsoftware.IntegrationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -596,7 +597,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = IntegrationTests/Info.plist;
+				INFOPLIST_FILE = "Integration Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldenhillsoftware.IntegrationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -762,15 +763,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 372S63A2R8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = GoldenHillHTTPLibraryTests/Info.plist;
+				INFOPLIST_FILE = "Unit Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldenhillsoftware.GoldenHillHTTPLibraryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HostApp.app/HostApp";
 			};
@@ -781,12 +784,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 372S63A2R8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = GoldenHillHTTPLibraryTests/Info.plist;
+				INFOPLIST_FILE = "Unit Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldenhillsoftware.GoldenHillHTTPLibraryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -807,7 +811,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2137123D1E70784100961208 /* Build configuration list for PBXNativeTarget "IntegrationTests" */ = {
+		2137123D1E70784100961208 /* Build configuration list for PBXNativeTarget "Integration Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2137123E1E70784100961208 /* Debug */,
@@ -834,7 +838,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21D3788B1E67298D00B985FD /* Build configuration list for PBXNativeTarget "GoldenHillHTTPLibraryTests" */ = {
+		21D3788B1E67298D00B985FD /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21D3788C1E67298D00B985FD /* Debug */,
