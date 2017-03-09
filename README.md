@@ -3,7 +3,7 @@
 This library provides functionality to make working with HTTP APIs easier. Specifically, it provides:
 
 * Consolidated detection and message generation for HTTP errors (connection issues, HTTP status codes, JSON deserialization, interpretation of JSON data).
-* The ability to disable redirects, to only allow redirects to HTTPS URLs, or to block redirects to non-HTTPS URLs from HTTPS URLs.
+* The ability to disable redirects, to only allow redirects to HTTPS URLs, or to block redirects from HTTPS URLs to non-HTTPS URLs.
 * TLS/SSL Pinning.
 * Convenience methods on URLRequest and HTTPURLResponse.
 
@@ -15,7 +15,7 @@ Pull requests welcome.
 
 ## URLSession Extension
 
-The URLSession extension encapsulates the work of error checking, parsing the result, and calling a user-defined method to convert the deserialized JSON into a suitable object.
+The URLSession extension encapsulates the work of error checking, parsing the JSON response body, and calling a user-defined method to convert the deserialized JSON into a suitable object.
 
 These are the method declarations:
 
@@ -38,7 +38,7 @@ public func ghs_dataTask(
     -> URLSessionDataTask
 ```
     
-The key difference between the two methods above is that the second has no JSON response interpreter. Instead it assumes the request is successful it gets a response with a 200, 201, 202, or 204 status code.
+The key difference between the two methods above is that the second has no JSON response interpreter. Instead it assumes the request is successful if it gets a response with a 200, 201, 202, or 204 status code.
 
 These are the parameters to these methods:
 
@@ -46,13 +46,13 @@ These are the parameters to these methods:
 
 **apiLabel**: The name of the service. For example, “Gmail” or “Feed Wrangler”. This is used to generate error messages.
 
-**operationLabel**: A short name for the operation being performed. For example, “create label” or “subscribe”.
+**operationLabel**: A short name for the operation being performed. For example, “create label” or “subscribe”. This is used to generate error messages.
 
 **jsonResponseInterpreter**: This converts a deserialized JSON object of type Any into a Swift object of type T? (T is the generic). If the method returns nil the library will return an error message indicating that the JSON response could not be interpreted.
 
 **errorMessageInterpreter**: If the web service returns a 4xx or 5xx error and a JSON response body, this method will be called asking it to return a string describing the error based on that response body. This is useful for web services that embed error messages in JSON 4xx and 5xx responses. If this parameter is not specified or if the error message interpreter returns nil, an error message will be generated without it.
 
-**handler**: A method that will accept the result of the request. The result object is based on the [Result](https://github.com/antitypical/Result) library. The result will be of type HTTPAPIResult<T>. If successful and a jsonResponseInterpreter returned an object, the Result object will have the result returned by jsonResultInterpreter. If successful and no jsonResponseInterpreter is specified, the Result object will be HTTPAPIResult&ldquo;Void&rdquo;. If a failure occurs, the Result object will be a failure with an HTTPAPIError.
+**handler**: A method that will accept the result of the request. The result object is based on the [Result](https://github.com/antitypical/Result) library. The result will be of type HTTPAPIResult. If successful and jsonResponseInterpreter returns an object, the Result object will have the result returned by jsonResultInterpreter. If successful and no jsonResponseInterpreter is specified, the Result object will be HTTPAPIResult with Void as the payload. If a failure occurs, the Result object will be a failure with an HTTPAPIError.
 
 Some relevant type aliases:
 
@@ -71,7 +71,7 @@ public var detailedErrorMessage: String
 public var combinedErrorMessage: String
 ```
 
-In general, *shortErrorMessage* indicates that an operation could not be performed, *detailedErrorMessage* provides the reason that the operation could not be performed, and *combinedErrorMessage* combines *shortErrorMessage* with *detailedErrorMessage*. If you are presenting an error in a UIAlertController, you might use the shortErrorMessage as the title and the *detailedErrorMessage* as the message. If you need one long string describing an error, you would use *combinedErrorMessage* instead.
+In general, *shortErrorMessage* indicates what operation could not be performed, *detailedErrorMessage* provides the reason that the operation could not be performed, and *combinedErrorMessage* combines *shortErrorMessage* with *detailedErrorMessage*. If you are presenting an error in a UIAlertController, you might use the shortErrorMessage as the title and the *detailedErrorMessage* as the message. If you need one long string describing an error, you would use *combinedErrorMessage* instead.
 
 For an example of this in action, here is a method that retrieves a list of subscriptions from a user’s Feedbin account:
 
