@@ -1,6 +1,6 @@
 # Golden Hill HTTP Library
 
-This library provides functionality to make working with HTTP APIs easier. Specifically, it provides:
+This library simplifies working with HTTP APIs. Specifically, it provides:
 
 * Consolidated detection and message generation for HTTP errors (connection issues, HTTP status codes, JSON deserialization, interpretation of JSON data).
 * The ability to disable redirects, to only allow redirects to HTTPS URLs, or to block redirects from HTTPS URLs to non-HTTPS URLs.
