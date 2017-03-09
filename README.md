@@ -2,14 +2,14 @@
 
 This library provides functionality to make working with HTTP APIs easier. Specifically, it provides:
 
-* Consolidated error message generation for HTTP requests (connection errors, HTTP status codes, JSON deserialization and interpretation errors).
-* The ability to disable redirects, to only allow redirects to HTTPS URLs, or to only allow redirects to HTTPS URLs when redirected from an HTTPS URL.
+* Consolidated detection and message generation for HTTP errors (connection issues, HTTP status codes, JSON deserialization, interpretation of JSON data).
+* The ability to disable redirects, to only allow redirects to HTTPS URLs, or block redirects to non-HTTPS URLs from HTTPS URLs.
 * TLS/SSL Pinning.
 * Convenience methods on URLRequest and HTTPURLResponse.
 
 To use with Carthage, add this to your Cartfile:
 
-    github "jbrayton/Golden-Hill-HTTP-Library" "1.0"
+    github "jbrayton/Golden-Hill-HTTP-Library" "1.0.1"
 
 ## URLSession Extension
 
@@ -36,9 +36,9 @@ public func ghs_dataTask(
     -> URLSessionDataTask
 ```
     
-The key difference between the two methods above is that the second has no JSON response interpreter. Instead it assumes the request is successful it gets a response with a 200, 201, 202, or 204 response code. It returns nothing to the caller.
+The key difference between the two methods above is that the second has no JSON response interpreter. Instead it assumes the request is successful it gets a response with a 200, 201, 202, or 204 response code.
 
-The parameters to these methods break down as follows:
+These are the parameters to these methods:
 
 **request**: The request to be submitted.
 
@@ -46,11 +46,11 @@ The parameters to these methods break down as follows:
 
 **operationLabel**: A short name for the operation being performed. For example, “create label” or “subscribe”.
 
-**jsonResponseInterpreter**: This converts a deserialized JSON object of type Any into a Swift object of type T? (T is the generic). If the method returns nil the library will return an error message indicating that the JSON response could not be interpreted. If this parameter is not specified, the library will assume that the response body is not needed and that a response code of 200, 201, 202, or 204 indicates success.
+**jsonResponseInterpreter**: This converts a deserialized JSON object of type Any into a Swift object of type T? (T is the generic). If the method returns nil the library will return an error message indicating that the JSON response could not be interpreted. This is useful for web services that embed error messages in JSON 4xx and 5xx responses.
 
 **errorMessageInterpreter**: If the web service returns a 4xx or 5xx error and a JSON response body, this method will be called asking it to return a string describing the error based on that response body. Some web services embed error messages in JSON for 4xx or 5xx errors. If this parameter is not specified or if the error message interpreter returns nil, an error message will be generated without it.
 
-**handler**: A method that will accept the result of the request. The result object is based on the [Result](https://github.com/antitypical/Result) library. The result will be of type HTTPAPIResult<T>. If successful and a jsonResponseInterpreter returned an object, the Result object will have the result returned by jsonResultInterpreter. If successful and no jsonResponseInterpreter is specified the Result object will be HTTPAPIResult<Void>. If a failure occurs, the Result object will be a failure with an HTTPAPIError.
+**handler**: A method that will accept the result of the request. The result object is based on the [Result](https://github.com/antitypical/Result) library. The result will be of type HTTPAPIResult<T>. If successful and a jsonResponseInterpreter returned an object, the Result object will have the result returned by jsonResultInterpreter. If successful and no jsonResponseInterpreter is specified, the Result object will be HTTPAPIResult&ldquo;Void&rdquo;. If a failure occurs, the Result object will be a failure with an HTTPAPIError.
 
 Some relevant type aliases:
 
@@ -122,7 +122,7 @@ The URLRequest extension provides convenience methods for URLRequest:
 public mutating func ghs_setPostJson(_ jsonDictionary: [String: Any])
 ```
 
-This sets the httpBody of the request to the dictionary serialized to JSON. It also handles setting the method to “POST” and setting the Content-Type of the request to “application/json”.
+This sets the httpBody of the request to the dictionary serialized to JSON. It also sets the method to “POST” and sets the Content-Type of the request to “application/json”.
 
 ```swift
 public mutating func ghs_setPostArgString( _ value: String )
