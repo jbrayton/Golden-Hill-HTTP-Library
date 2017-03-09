@@ -38,7 +38,7 @@ public extension URLSession {
        could be found in the response.
      * handler: Will be called when completed with either a success response or an error response.
      */
-    public func ghs_dataTaskWithRequest<T>( request: URLRequest, apiLabel: String, operationLabel: String, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping (Result<T,HTTPAPIError>) -> Void ) -> URLSessionDataTask {
+    public func ghs_dataTask<T>( request: URLRequest, apiLabel: String, operationLabel: String, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping (Result<T,HTTPAPIError>) -> Void ) -> URLSessionDataTask {
         NotificationCenter.default.post(name: NetworkNotifications.starting, object: nil)
         return self.dataTask(with: request, completionHandler: {[unowned self](data, response, error) in
             self.ghs_completionHandler(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, jsonResponseInterpreter: jsonResponseInterpreter, errorMessageInterpreter: errorMessageInterpreter, handler: handler)
@@ -53,9 +53,9 @@ public extension URLSession {
        parameter.
      * It will accept an HTTP response code of 200, 201, 202, or 204.
      */
-    public func ghs_dataTaskWithRequest( request: URLRequest, apiLabel: String, operationLabel: String, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<Void> ) -> URLSessionDataTask {
+    public func ghs_dataTask( request: URLRequest, apiLabel: String, operationLabel: String, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<Void> ) -> URLSessionDataTask {
 
-        return self.ghs_dataTaskWithRequest(request: request, apiLabel: apiLabel, operationLabel: operationLabel, jsonResponseInterpreter: URLSession.self.ghs_voidJsonInterpreter, handler: handler)
+        return self.ghs_dataTask(request: request, apiLabel: apiLabel, operationLabel: operationLabel, jsonResponseInterpreter: URLSession.self.ghs_voidJsonInterpreter, handler: handler)
     }
     
     /*
