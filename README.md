@@ -52,7 +52,7 @@ These are the parameters to these methods:
 
 **errorMessageInterpreter**: If the web service returns a 4xx or 5xx error and a JSON response body, this method will be called asking it to return a string describing the error based on that response body. This is useful for web services that embed error messages in JSON 4xx and 5xx responses. If this parameter is not specified or if the error message interpreter returns nil, an error message will be generated without it.
 
-**handler**: A method that will accept the result of the request. The result object is based on the [Result](https://github.com/antitypical/Result) library. The result will be of type HTTPAPIResult. If successful and jsonResponseInterpreter returns an object, the Result object will have the result returned by jsonResultInterpreter. If successful and no jsonResponseInterpreter is specified, the Result object will be HTTPAPIResult with Void as the payload. If a failure occurs, the Result object will be a failure with an HTTPAPIError.
+**handler**: A method that will accept the result of the request. The result object is based on the [Result](https://github.com/antitypical/Result) library. The result will be of type `HTTPAPIResult<T>`. If successful and jsonResponseInterpreter returns an object, the Result object will have the result returned by jsonResultInterpreter. If successful and no jsonResponseInterpreter is specified, the Result object will be `HTTPAPIResult<Void>` with Void as the payload. If a failure occurs, the Result object will be a failure with an HTTPAPIError.
 
 Some relevant type aliases:
 
