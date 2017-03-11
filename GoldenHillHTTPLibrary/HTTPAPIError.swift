@@ -74,9 +74,6 @@ public enum HTTPAPIError: Error {
         case .connection(let apiLabel, _, let error):
             return String.localizedStringWithFormat("Could not connect to %@. %@", apiLabel, error.localizedDescription)
         case .statusCode(let apiLabel, _, let statusCode):
-            if (statusCode == 401) || (statusCode == 403) {
-                return String.localizedStringWithFormat("%@ did not accept the credentials. Please try logging out and logging back in.", apiLabel)
-            }
             if ((statusCode == 420) || (statusCode == 429)) {
                 return String.localizedStringWithFormat("%@ rejected the request because too many requests have been sent within a short period of time.", apiLabel)
             }

@@ -19,12 +19,6 @@ class HTTPAPIErrorTests: XCTestCase {
         error = HTTPAPIError.statusCode(apiLabel: "Gmail", operationLabel: "get an authentication token from a code", statusCode: 201)
         XCTAssertEqual(error.combinedErrorMessage, "Unable to get an authentication token from a code. Gmail returned an unexpected status code (201).")
         
-        error = HTTPAPIError.statusCode(apiLabel: "Gmail", operationLabel: "retrieve the account profile", statusCode: 401)
-        XCTAssertEqual(error.combinedErrorMessage, "Unable to retrieve the account profile. Gmail did not accept the credentials. Please try logging out and logging back in.")
-        
-        error = HTTPAPIError.statusCode(apiLabel: "Gmail", operationLabel: "retrieve the account profile", statusCode: 403)
-        XCTAssertEqual(error.combinedErrorMessage, "Unable to retrieve the account profile. Gmail did not accept the credentials. Please try logging out and logging back in.")
-        
         error = HTTPAPIError.statusCode(apiLabel: "Gmail", operationLabel: "retrieve the account profile", statusCode: 400)
         XCTAssertEqual(error.combinedErrorMessage, "Unable to retrieve the account profile. Gmail rejected the request (status code 400).")
         
@@ -54,12 +48,6 @@ class HTTPAPIErrorTests: XCTestCase {
         
         error = HTTPAPIError.retrieveRefreshTokenFromKeychain(apiLabel: "Gmail", operationLabel: "reauthenticate")
         XCTAssertEqual(error.combinedErrorMessage, "Unable to reauthenticate. The keychain did not return the refresh token.")
-        
-        error = HTTPAPIError.statusCode(apiLabel: "Gmail", operationLabel: "delete filter", statusCode: 401)
-        XCTAssertEqual(error.combinedErrorMessage, "Unable to delete filter. Gmail did not accept the credentials. Please try logging out and logging back in.")
-        
-        error = HTTPAPIError.statusCode(apiLabel: "Gmail", operationLabel: "create filter after deleting old version", statusCode: 401)
-        XCTAssertEqual(error.combinedErrorMessage, "Unable to create filter after deleting old version. Gmail did not accept the credentials. Please try logging out and logging back in.")
         
         error = HTTPAPIError.statusCode(apiLabel: "Gmail", operationLabel: "create filter after deleting old version", statusCode: 404)
         XCTAssertEqual(error.combinedErrorMessage, "Unable to create filter after deleting old version. Gmail rejected the request (not found).")
