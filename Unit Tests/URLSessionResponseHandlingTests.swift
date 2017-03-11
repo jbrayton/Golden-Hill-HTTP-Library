@@ -89,7 +89,7 @@ class URLSessionResponseHandlingTests : XCTestCase {
     
     func testSuccess() {
         
-        let successfulResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)
+        let successfulResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: ["Content-Type": "application/json"])
         
         // Successful case
         let successfulExpectation = self.expectation(description: "success")
@@ -159,16 +159,25 @@ class URLSessionResponseHandlingTests : XCTestCase {
     }
     
     func testBadJson() {
-        let successfulResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)
+        let successfulResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: ["Content-Type": "text/json"])
         
         self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", jsonResponseInterpreter: self.shouldNotBeCalledParser, errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: "{\"a\" \"b\"}".data(using: String.Encoding.utf8), response: successfulResponse, error: nil, expectedErrorMessage: "Gmail returned a response that could not be parsed.", file: #file, line: #line)
         
     }
     
     func testBadParseResult() {
-        let successfulResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)
+        let successfulResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: ["Content-Type": "text/json"])
         
         self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", jsonResponseInterpreter: self.simpleFailedParser, errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: successfulResponse, error: nil, expectedErrorMessage: "Gmail returned a response that could not be parsed.", file: #file, line: #line)
+    }
+    
+    func testNotJsonMimeType() {
+        let htmlResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: ["Content-Type": "text/html"])
+        
+        self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", jsonResponseInterpreter: self.simpleSuccessfulParser, errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: htmlResponse, error: nil, expectedErrorMessage: "Gmail returned a response with a MIME type of text/html. HostApp expected JSON.", file: #file, line: #line)
+
+        let noMimeResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)
+        self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", jsonResponseInterpreter: self.simpleSuccessfulParser, errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: noMimeResponse, error: nil, expectedErrorMessage: "Gmail returned a response without a Content-Type header. HostApp expected JSON.", file: #file, line: #line)
     }
     
     func testUnexpectedResponseCode() {
@@ -202,7 +211,7 @@ class URLSessionResponseHandlingTests : XCTestCase {
     }
     
     func testNoData() {
-        let successfulResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)
+        let successfulResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: ["Content-Type": "application/json"])
         
         self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", jsonResponseInterpreter: self.shouldNotBeCalledParser, errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: nil, response: successfulResponse, error: nil, expectedErrorMessage: "Gmail returned a response that could not be parsed.", file: #file, line: #line)
     }

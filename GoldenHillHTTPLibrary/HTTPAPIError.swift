@@ -16,6 +16,7 @@ public enum HTTPAPIError: Error {
     case urlSessionUnexpectedResponse(apiLabel: String, operationLabel: String)
     case retrieveRefreshTokenFromKeychain(apiLabel: String, operationLabel: String)
     case incorrectPassword(apiLabel: String, operationLabel: String, usernameType: UsernameType)
+    case responseNotJson(apiLabel: String, operationLabel: String, contentType: String?)
     
     public var shortErrorMessage: String {
         
@@ -33,6 +34,8 @@ public enum HTTPAPIError: Error {
         case .retrieveRefreshTokenFromKeychain(_, let operationLabel):
             return self.getShortErrorMessage(operationLabel: operationLabel)
         case .incorrectPassword(_, let operationLabel, _):
+            return self.getShortErrorMessage(operationLabel: operationLabel)
+        case .responseNotJson(_, let operationLabel, _):
             return self.getShortErrorMessage(operationLabel: operationLabel)
         }
     }
@@ -60,6 +63,8 @@ public enum HTTPAPIError: Error {
         case .retrieveRefreshTokenFromKeychain(_, let operationLabel):
             return operationLabel
         case .incorrectPassword(_, let operationLabel, _):
+            return operationLabel
+        case .responseNotJson(_, let operationLabel, _):
             return operationLabel
         }
     }
@@ -103,6 +108,16 @@ public enum HTTPAPIError: Error {
                 usernameString = String.localizedStringWithFormat("email address")
             }
             return String.localizedStringWithFormat("%@ rejected the %@ and password combination.", apiLabel, usernameString)
+        case .responseNotJson(let apiLabel, _, let contentType):
+            var appName = "App"
+            if let nonNullAppName = Bundle.main.infoDictionary?["CFBundleName"] as? String {
+                appName = nonNullAppName
+            }
+            if let ct = contentType {
+                return String.localizedStringWithFormat("%@ returned a response with a MIME type of %@. %@ expected JSON.", apiLabel, ct, appName)
+            } else {
+                return String.localizedStringWithFormat("%@ returned a response without a Content-Type header. %@ expected JSON.", apiLabel, appName)
+            }
         }
         
     }

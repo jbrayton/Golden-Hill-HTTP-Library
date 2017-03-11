@@ -66,6 +66,12 @@ class HTTPAPIErrorTests: XCTestCase {
         
         error = HTTPAPIError.incorrectPassword(apiLabel: "Gmail", operationLabel: "log in", usernameType: .username)
         XCTAssertEqual(error.detailedErrorMessage, "Gmail rejected the username and password combination.")
+        
+        error = HTTPAPIError.responseNotJson(apiLabel: "Gmail", operationLabel: "log in", contentType: "text/html")
+        XCTAssertEqual(error.combinedErrorMessage, "Unable to log in. Gmail returned a response with a MIME type of text/html. HostApp expected JSON.")
+        
+        error = HTTPAPIError.responseNotJson(apiLabel: "Gmail", operationLabel: "log in", contentType: nil)
+        XCTAssertEqual(error.combinedErrorMessage, "Unable to log in. Gmail returned a response without a Content-Type header. HostApp expected JSON.")
     }
     
     func testConvertToSentence() {

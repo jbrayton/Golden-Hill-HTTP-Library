@@ -85,6 +85,10 @@ public extension URLSession {
             }
             
             if httpResponse.statusCode == 200 {
+                guard let mimeType = httpResponse.mimeType, URLSession.ghs_jsonContentTypes.contains(mimeType) else {
+                    handler(Result.failure(HTTPAPIError.responseNotJson(apiLabel: apiLabel, operationLabel: operationLabel, contentType: httpResponse.mimeType)))
+                    return
+                }
                 if let d = data {
                     let jsonParsed = try? JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions())
                     if let json = jsonParsed {
