@@ -9,7 +9,7 @@ This library simplifies working with HTTP APIs. Specifically, it provides:
 
 To use with Carthage, add this to your Cartfile:
 
-    github "jbrayton/Golden-Hill-HTTP-Library" "1.0.2"
+    github "jbrayton/Golden-Hill-HTTP-Library" "1.0.3"
 
 Pull requests welcome.
 
