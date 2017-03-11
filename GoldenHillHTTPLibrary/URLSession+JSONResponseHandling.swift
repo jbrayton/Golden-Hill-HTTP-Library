@@ -16,7 +16,7 @@ public typealias JsonResponseInterpreter<T> = (Any) -> T?
 public extension URLSession {
     
     
-    static let ghs_jsonContentTypes = ["application/json", "text/json"]
+    static let ghs_jsonContentTypes = ["application/json", "text/json", "text/javascript"]
     static let ghs_successfulStatusCodesNoContent = [200, 201, 202, 204]
 
     /*
