@@ -181,15 +181,15 @@ class URLSessionResponseHandlingTests : XCTestCase {
     }
     
     func testUnexpectedResponseCode() {
-        let failedResponse = HTTPURLResponse(url: url, statusCode: 404, httpVersion: "HTTP/1.1", headerFields: nil)
+        let failedResponse = HTTPURLResponse(url: url, statusCode: 456, httpVersion: "HTTP/1.1", headerFields: nil)
         
-        self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", jsonResponseInterpreter: self.shouldNotBeCalledParser, errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "Gmail rejected the request (status code 404).", file: #file, line: #line)
+        self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", jsonResponseInterpreter: self.shouldNotBeCalledParser, errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "Gmail rejected the request (status code 456).", file: #file, line: #line)
     }
     
     func testUnexpectedResponseCodeNoBody() {
-        let failedResponse = HTTPURLResponse(url: url, statusCode: 404, httpVersion: "HTTP/1.1", headerFields: nil)
+        let failedResponse = HTTPURLResponse(url: url, statusCode: 456, httpVersion: "HTTP/1.1", headerFields: nil)
         
-        self.assertError(request: request, apiLabel: "Gmail", operationLabel: "get user profile", errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "Gmail rejected the request (status code 404).", file: #file, line: #line)
+        self.assertError(request: request, apiLabel: "Gmail", operationLabel: "get user profile", errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "Gmail rejected the request (status code 456).", file: #file, line: #line)
     }
     
     func testServerErrorMessage() {
@@ -200,14 +200,14 @@ class URLSessionResponseHandlingTests : XCTestCase {
         self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", errorMessageInterpreter: self.returnServerError, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "My custom server error.", file: #file, line: #line)
         
         // If the errorMessageInterpreter returns null
-        self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", jsonResponseInterpreter: self.shouldNotBeCalledParser, errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "Gmail rejected the request (status code 404).", file: #file, line: #line)
+        self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", jsonResponseInterpreter: self.shouldNotBeCalledParser, errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "Gmail rejected the request (not found).", file: #file, line: #line)
 
-        self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "Gmail rejected the request (status code 404).", file: #file, line: #line)
+        self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", errorMessageInterpreter: self.errorMessageInterpreterReturningNil, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "Gmail rejected the request (not found).", file: #file, line: #line)
 
         // Without the Content-Type: application/json
         failedResponse = HTTPURLResponse(url: url, statusCode: 404, httpVersion: "HTTP/1.1", headerFields: ["Content-Type": "text/html"])
-        self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", jsonResponseInterpreter: self.shouldNotBeCalledParser, errorMessageInterpreter: self.returnServerError, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "Gmail rejected the request (status code 404).", file: #file, line: #line)
-        self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", errorMessageInterpreter: self.returnServerError, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "Gmail rejected the request (status code 404).", file: #file, line: #line)
+        self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", jsonResponseInterpreter: self.shouldNotBeCalledParser, errorMessageInterpreter: self.returnServerError, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "Gmail rejected the request (not found).", file: #file, line: #line)
+        self.assertError(request: self.request, apiLabel: "Gmail", operationLabel: "get user profile", errorMessageInterpreter: self.returnServerError, data: "{\"a\": \"b\"}".data(using: String.Encoding.utf8), response: failedResponse, error: nil, expectedErrorMessage: "Gmail rejected the request (not found).", file: #file, line: #line)
     }
     
     func testNoData() {

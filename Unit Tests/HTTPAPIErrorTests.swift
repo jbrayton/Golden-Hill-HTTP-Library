@@ -61,6 +61,9 @@ class HTTPAPIErrorTests: XCTestCase {
         error = HTTPAPIError.statusCode(apiLabel: "Gmail", operationLabel: "create filter after deleting old version", statusCode: 401)
         XCTAssertEqual(error.combinedErrorMessage, "Unable to create filter after deleting old version. Gmail did not accept the credentials. Please try logging out and logging back in.")
         
+        error = HTTPAPIError.statusCode(apiLabel: "Gmail", operationLabel: "create filter after deleting old version", statusCode: 404)
+        XCTAssertEqual(error.combinedErrorMessage, "Unable to create filter after deleting old version. Gmail rejected the request (not found).")
+        
         error = HTTPAPIError.incorrectPassword(apiLabel: "Feed Wrangler", operationLabel: "log in", usernameType: .emailAddress)
         XCTAssertEqual(error.detailedErrorMessage, "Feed Wrangler rejected the email address and password combination.")
         

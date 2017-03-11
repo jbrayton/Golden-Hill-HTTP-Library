@@ -80,6 +80,9 @@ public enum HTTPAPIError: Error {
             if ((statusCode == 420) || (statusCode == 429)) {
                 return String.localizedStringWithFormat("%@ rejected the request because too many requests have been sent within a short period of time.", apiLabel)
             }
+            if (statusCode == 404) {
+                return String.localizedStringWithFormat("%@ rejected the request (not found).", apiLabel)
+            }
             if ((statusCode >= 400) && (statusCode < 500)) {
                 return String.localizedStringWithFormat("%@ rejected the request (status code %d).", apiLabel, statusCode)
             }
