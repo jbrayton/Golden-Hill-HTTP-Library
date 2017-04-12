@@ -7,6 +7,18 @@ This library simplifies working with HTTP APIs. Specifically, it provides:
 * TLS/SSL Pinning.
 * Convenience methods on URLRequest and HTTPURLResponse.
 
+## To Build Locally
+
+You will need Xcode 8.3 or later and [Carthage](https://github.com/Carthage/Carthage) 0.20.1 or later.
+
+```
+git clone https://github.com/jbrayton/Golden-Hill-HTTP-Library.git
+cd Golden-Hill-HTTP-Library/
+carthage update --no-use-binaries --platform iOS
+```
+
+## Carthage
+
 To use with Carthage, add this to your Cartfile:
 
     github "jbrayton/Golden-Hill-HTTP-Library" "1.0.3"
