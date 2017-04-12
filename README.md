@@ -7,9 +7,13 @@ This library simplifies working with HTTP APIs. Specifically, it provides:
 * TLS/SSL Pinning.
 * Convenience methods on URLRequest and HTTPURLResponse.
 
+Pull requests welcome.
+
 ## To Build Locally
 
 You will need Xcode 8.3 or later and [Carthage](https://github.com/Carthage/Carthage) 0.20.1 or later.
+
+First enter these commands in Terminal to check out the project and to retrieve dependencies.
 
 ```
 git clone https://github.com/jbrayton/Golden-Hill-HTTP-Library.git
@@ -17,17 +21,17 @@ cd Golden-Hill-HTTP-Library/
 carthage update --no-use-binaries --platform iOS
 ```
 
+Then open the Xcode project file and build it.
+
 ## Carthage
 
 To use with Carthage, add this to your Cartfile:
 
-    github "jbrayton/Golden-Hill-HTTP-Library" "1.0.3"
-
-Pull requests welcome.
+    github "jbrayton/Golden-Hill-HTTP-Library" "1.0.4"
 
 ## URLSession Extension
 
-The URLSession extension encapsulates the work of error checking, parsing the JSON response body, and calling a user-defined method to convert the deserialized JSON into a suitable object.
+The URLSession extension encapsulates the work of error checking, parsing the JSON response body, and calling a user-defined method to convert the parsed JSON into a suitable object.
 
 These are the method declarations:
 
@@ -60,7 +64,7 @@ These are the parameters to these methods:
 
 **operationLabel**: A short name for the operation being performed. For example, “create label” or “subscribe”. This is used to generate error messages.
 
-**jsonResponseInterpreter**: This converts a deserialized JSON object of type Any into a Swift object of type T? (T is the generic). If the method returns nil the library will return an error message indicating that the JSON response could not be interpreted.
+**jsonResponseInterpreter**: This converts a parsed JSON object of type Any into a Swift object of type T? (T is the generic). If the method returns nil the library will return an error message indicating that the JSON response could not be interpreted.
 
 **errorMessageInterpreter**: If the web service returns a 4xx or 5xx error and a JSON response body, this method will be called asking it to return a string describing the error based on that response body. This is useful for web services that embed error messages in JSON 4xx and 5xx responses. If this parameter is not specified or if the error message interpreter returns nil, an error message will be generated without it.
 
@@ -75,7 +79,7 @@ public typealias HTTPAPIResult<T> = Result<T,HTTPAPIError>
 public typealias HTTPAPIResultHandler<T> = (Result<T,HTTPAPIError>) -> Void
 ```
 
-HTTPAPIError error objects contain these variables:
+HTTPAPIError objects contain these variables:
 
 ```swift
 public var shortErrorMessage: String
@@ -89,18 +93,18 @@ For an example of this in action, here is a method that retrieves a list of subs
 
 ```swift
 func getSubscriptionList( credential: Credential, 
-						  handler: @escaping HTTPAPIResultHandler<[Subscription]> ) {
-	let urlString = "https://api.feedbin.com/v2/subscriptions.json"
-	var request = URLRequest(url: URL(string: urlString)!)
-	self.add(credential: credential, toRequest: &request)
+                          handler: @escaping HTTPAPIResultHandler<[Subscription]> ) {
+    let urlString = "https://api.feedbin.com/v2/subscriptions.json"
+    var request = URLRequest(url: URL(string: urlString)!)
+    self.add(credential: credential, toRequest: &request)
 
-	let dataTask = self.urlSession.ghs_dataTask(request: request, 
-		apiLabel: String.localizedStringWithFormat("Feedbin"), 
-		operationLabel: String.localizedStringWithFormat("get subscription list"), 
-		jsonResponseInterpreter: self.interpretSubscriptionList, 
-		handler: handler)
+    let dataTask = self.urlSession.ghs_dataTask(request: request, 
+        apiLabel: String.localizedStringWithFormat("Feedbin"), 
+        operationLabel: String.localizedStringWithFormat("get subscription list"), 
+        jsonResponseInterpreter: self.interpretSubscriptionList, 
+        handler: handler)
 
-	dataTask.resume()
+    dataTask.resume()
 }
 ```
 
@@ -110,19 +114,19 @@ This method will delete a Feedbin subscription:
 
 ```swift
 public func unsubscribe( credential: Credential, 
-						 subscription: Subscription, 
-						 handler: @escaping HTTPAPIResultHandler<Void> ) {
-	let urlString = String(
-	   format: "https://api.feedbin.com/v2/subscriptions/%@.json", 
-	   arguments: [subscription.subscriptionId])
-	var request = URLRequest(url: URL(string: urlString)!)
-	request.httpMethod = "DELETE"
-	self.add(credential: credential, toRequest: &request)
-	let dataTask = self.urlSession.ghs_dataTask(request: request, 
-		apiLabel: String.localizedStringWithFormat("Feedbin"), 
-		operationLabel: String.localizedStringWithFormat("unsubscribe"), 
-		handler: handler)
-	dataTask.resume()
+                         subscription: Subscription, 
+                         handler: @escaping HTTPAPIResultHandler<Void> ) {
+    let urlString = String(
+       format: "https://api.feedbin.com/v2/subscriptions/%@.json", 
+       arguments: [subscription.subscriptionId])
+    var request = URLRequest(url: URL(string: urlString)!)
+    request.httpMethod = "DELETE"
+    self.add(credential: credential, toRequest: &request)
+    let dataTask = self.urlSession.ghs_dataTask(request: request, 
+        apiLabel: String.localizedStringWithFormat("Feedbin"), 
+        operationLabel: String.localizedStringWithFormat("unsubscribe"), 
+        handler: handler)
+    dataTask.resume()
 }
 ```
 
@@ -168,9 +172,9 @@ This returns the redirect type that the response represents: permanent, temporar
 
 ```swift
 public enum RedirectType {
-	case temporary
-	case permanent
-	case none
+    case temporary
+    case permanent
+    case none
 }
 ```
 
@@ -199,10 +203,10 @@ This is the declaration of FollowRedirects:
 
 ```swift
 public enum FollowRedirects {
-	case always
-	case never
-	case httpsOnly
-	case httpsOnlyWhenFromHttps
+    case always
+    case never
+    case httpsOnly
+    case httpsOnlyWhenFromHttps
 }
 ```
 
