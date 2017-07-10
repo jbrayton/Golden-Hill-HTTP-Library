@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SimpleURLSessionDelegate: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
+open class SimpleURLSessionDelegate: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
     
     let followRedirects: FollowRedirects
     
