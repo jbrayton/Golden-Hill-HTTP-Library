@@ -983,6 +983,7 @@
 				21CADD601EC7C8AA00B68C7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21D3786E1E67298D00B985FD /* Build configuration list for PBXProject "GoldenHillHTTPLibrary" */ = {
 			isa = XCConfigurationList;

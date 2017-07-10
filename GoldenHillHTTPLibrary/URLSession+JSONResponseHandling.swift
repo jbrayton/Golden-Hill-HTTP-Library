@@ -54,10 +54,10 @@ public extension URLSession {
        parameter.
      * It will accept an HTTP response code of 200, 201, 202, or 204.
      */
-    public func ghs_dataTask( request: URLRequest, apiLabel: String, operationLabel: String, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<Void> ) -> URLSessionDataTask {
-
-        return self.ghs_dataTask(request: request, apiLabel: apiLabel, operationLabel: operationLabel, jsonResponseInterpreter: URLSession.self.ghs_voidJsonInterpreter, handler: handler)
-    }
+//    public func ghs_dataTask( request: URLRequest, apiLabel: String, operationLabel: String, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<Void> ) -> URLSessionDataTask {
+//
+//        return self.ghs_dataTask(request: request, apiLabel: apiLabel, operationLabel: operationLabel, jsonResponseInterpreter: URLSession.self.ghs_voidJsonInterpreter, handler: handler)
+//    }
     
     /*
         A placeholder function that returns void, to be used when there is no need
@@ -67,7 +67,7 @@ public extension URLSession {
         
     }
 
-    public func ghs_completionHandler<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter, handler: @escaping (Result<T,HTTPAPIError>) -> Void ) {
+    public func ghs_completionHandler<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping (Result<T,HTTPAPIError>) -> Void ) {
         if let httpResponse = response as? HTTPURLResponse {
             
             // If jsonResponseInterpreter returns Void, there is no reason to parse the JSON. There may not even be JSON to 
