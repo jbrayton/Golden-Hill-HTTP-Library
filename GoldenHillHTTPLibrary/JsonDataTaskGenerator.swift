@@ -8,7 +8,7 @@
 
 import Foundation
 
-class JsonDataTaskGenerator<T> {
+public class JsonDataTaskGenerator<T> {
     
     let request: URLRequest
     let apiLabel: String
@@ -20,7 +20,7 @@ class JsonDataTaskGenerator<T> {
     var handler: HTTPAPIResultHandler<T>?
     
     
-    init( request: URLRequest, apiLabel: String, operationLabel: String ) {
+    public init( request: URLRequest, apiLabel: String, operationLabel: String ) {
         self.request = request
         self.apiLabel = apiLabel
         self.operationLabel = operationLabel
@@ -29,7 +29,7 @@ class JsonDataTaskGenerator<T> {
         }
     }
     
-    func dataTask( fromSession session: URLSession ) -> URLSessionDataTask {
+    public func dataTask( fromSession session: URLSession ) -> URLSessionDataTask {
         return session.ghs_dataTask(request: request, apiLabel: self.apiLabel, operationLabel: self.operationLabel, jsonResponseInterpreter: self.jsonResponseInterpreter!, errorMessageInterpreter: self.errorMessageInterpreter, handler: self.handler!)
     }
     
