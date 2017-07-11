@@ -14,10 +14,10 @@ public class JsonDataTaskGenerator<T> {
     let apiLabel: String
     let operationLabel: String
     
-    var errorMessageInterpreter: ErrorMessageInterpreter
+    public var errorMessageInterpreter: ErrorMessageInterpreter
     
-    var jsonResponseInterpreter: JsonResponseInterpreter<T>?
-    var handler: HTTPAPIResultHandler<T>?
+    public var jsonResponseInterpreter: JsonResponseInterpreter<T>?
+    public var handler: HTTPAPIResultHandler<T>?
     
     
     public init( request: URLRequest, apiLabel: String, operationLabel: String ) {
