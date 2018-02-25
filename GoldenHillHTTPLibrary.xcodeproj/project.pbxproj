@@ -35,6 +35,7 @@
 		21771BCA1E70E96B00C923EF /* SimpleURLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771BC61E70E96B00C923EF /* SimpleURLSessionDelegate.swift */; };
 		21771BCB1E70E96B00C923EF /* URLSessionResponseHandlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771BC71E70E96B00C923EF /* URLSessionResponseHandlingTests.swift */; };
 		21771BCD1E70EB8800C923EF /* RedirectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771BCC1E70EB8800C923EF /* RedirectType.swift */; };
+		219513C22043100D00A20A49 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219513C12043100D00A20A49 /* ResponseTests.swift */; };
 		21CADD5E1EC7C8AA00B68C7A /* GoldenHillHTTPLibrary-Mac.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CADD5C1EC7C8AA00B68C7A /* GoldenHillHTTPLibrary-Mac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21CADD621EC7C8CD00B68C7A /* UsernameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137122B1E6C6D3F00961208 /* UsernameType.swift */; };
 		21CADD631EC7C8D000B68C7A /* URLSession+JSONResponseHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213711DD1E67386200961208 /* URLSession+JSONResponseHandling.swift */; };
@@ -115,6 +116,7 @@
 		21771BC61E70E96B00C923EF /* SimpleURLSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleURLSessionDelegate.swift; path = "Unit Tests/SimpleURLSessionDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		21771BC71E70E96B00C923EF /* URLSessionResponseHandlingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLSessionResponseHandlingTests.swift; path = "Unit Tests/URLSessionResponseHandlingTests.swift"; sourceTree = SOURCE_ROOT; };
 		21771BCC1E70EB8800C923EF /* RedirectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedirectType.swift; sourceTree = "<group>"; };
+		219513C12043100D00A20A49 /* ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
 		21CADD5A1EC7C8A900B68C7A /* GoldenHillHTTPLibraryMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoldenHillHTTPLibraryMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21CADD5C1EC7C8AA00B68C7A /* GoldenHillHTTPLibrary-Mac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoldenHillHTTPLibrary-Mac.h"; sourceTree = "<group>"; };
 		21CADD5D1EC7C8AA00B68C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				21771BC41E70E96B00C923EF /* HTTPAPIErrorTests.swift */,
 				21771BC61E70E96B00C923EF /* SimpleURLSessionDelegate.swift */,
 				21771BC71E70E96B00C923EF /* URLSessionResponseHandlingTests.swift */,
+				219513C12043100D00A20A49 /* ResponseTests.swift */,
 			);
 			name = "Unit Tests";
 			path = GoldenHillHTTPLibraryTests;
@@ -593,6 +596,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219513C22043100D00A20A49 /* ResponseTests.swift in Sources */,
 				21771BC81E70E96B00C923EF /* HTTPAPIErrorTests.swift in Sources */,
 				21771BCB1E70E96B00C923EF /* URLSessionResponseHandlingTests.swift in Sources */,
 				21771BCA1E70E96B00C923EF /* SimpleURLSessionDelegate.swift in Sources */,
