@@ -13,6 +13,8 @@ public typealias ErrorMessageInterpreter = (Any) -> String?
 
 public typealias JsonResponseInterpreter<T> = (Any) -> T?
 
+public typealias JsonAndHeaderResponseInterpreter<T> = (HTTPURLResponse,Any) -> T?
+
 public extension URLSession {
     
     
@@ -47,6 +49,14 @@ public extension URLSession {
         })
     }
 
+    public func ghs_dataTask<T>( request: URLRequest, apiLabel: String, operationLabel: String, jsonAndHeaderResponseInterpreter: @escaping JsonAndHeaderResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<T> ) -> URLSessionDataTask {
+        NotificationCenter.default.post(name: NetworkNotifications.starting, object: nil)
+        return self.dataTask(with: request, completionHandler: {[unowned self](data, response, error) in
+            self.ghs_completionHandler(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, jsonAndHeaderResponseInterpreter: jsonAndHeaderResponseInterpreter, errorMessageInterpreter: errorMessageInterpreter, handler: handler)
+            NotificationCenter.default.post(name: NetworkNotifications.finishing, object: nil)
+        })
+    }
+    
     /*
      This is similar to the method above. These are the differences:
      * It assumes that the server will send an empty response or a response that can be
@@ -68,15 +78,23 @@ public extension URLSession {
     }
 
     public func ghs_completionHandler<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping (Result<T,HTTPAPIError>) -> Void ) {
+        
+        let jsonAndHeaderResponseInterpreter: JsonAndHeaderResponseInterpreter<T> = { (response: HTTPURLResponse, json: Any ) in
+            return jsonResponseInterpreter(json)
+        }
+        self.ghs_completionHandler(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, jsonAndHeaderResponseInterpreter: jsonAndHeaderResponseInterpreter, errorMessageInterpreter: errorMessageInterpreter, handler: handler)
+    }
+
+    public func ghs_completionHandler<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonAndHeaderResponseInterpreter: @escaping JsonAndHeaderResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping (Result<T,HTTPAPIError>) -> Void ) {
         if let httpResponse = response as? HTTPURLResponse {
             
-            // If jsonResponseInterpreter returns Void, there is no reason to parse the JSON. There may not even be JSON to 
+            // If jsonResponseInterpreter returns Void, there is no reason to parse the JSON. There may not even be JSON to
             // parse. Accept a wider variety of status codes and essentially call Result.success(Void).
             if Void.self == T.self {
                 if URLSession.ghs_successfulStatusCodesNoContent.contains(httpResponse.statusCode) {
                     
                     // I couldn't find a way to pass Void directly to Result.success(...).
-                    if let obj = jsonResponseInterpreter("x") {
+                    if let obj = jsonAndHeaderResponseInterpreter(httpResponse, "x") {
                         handler(Result.success(obj))
                         return
                     }
@@ -92,7 +110,7 @@ public extension URLSession {
                 if let d = data {
                     let jsonParsed = try? JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions())
                     if let json = jsonParsed {
-                        if let result = jsonResponseInterpreter(json) {
+                        if let result = jsonAndHeaderResponseInterpreter(httpResponse, json) {
                             handler(Result.success(result))
                         } else {
                             handler(Result.failure(HTTPAPIError.interpretResponse(apiLabel: apiLabel, operationLabel: operationLabel)))
@@ -120,7 +138,7 @@ public extension URLSession {
             }
         }
     }
-
+    
     private func ghs_parsePotentialError( httpResponse: HTTPURLResponse, data: Data, errorMessageInterpreter: ErrorMessageInterpreter ) -> String? {
         guard let contentType = httpResponse.mimeType, URLSession.ghs_jsonContentTypes.contains(contentType) else {
             return nil

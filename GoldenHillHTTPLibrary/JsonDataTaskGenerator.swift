@@ -17,6 +17,7 @@ public class JsonDataTaskGenerator<T> {
     public var errorMessageInterpreter: ErrorMessageInterpreter
     
     public var jsonResponseInterpreter: JsonResponseInterpreter<T>?
+    public var jsonAndHeaderResponseInterpreter: JsonAndHeaderResponseInterpreter<T>?
     public var handler: HTTPAPIResultHandler<T>?
     
     
@@ -30,7 +31,12 @@ public class JsonDataTaskGenerator<T> {
     }
     
     public func dataTask( fromSession session: URLSession ) -> URLSessionDataTask {
-        return session.ghs_dataTask(request: request, apiLabel: self.apiLabel, operationLabel: self.operationLabel, jsonResponseInterpreter: self.jsonResponseInterpreter!, errorMessageInterpreter: self.errorMessageInterpreter, handler: self.handler!)
+        if let headerAndResponse = self.jsonAndHeaderResponseInterpreter {
+            
+            return session.ghs_dataTask(request: request, apiLabel: self.apiLabel, operationLabel: self.operationLabel, jsonAndHeaderResponseInterpreter: headerAndResponse, errorMessageInterpreter: self.errorMessageInterpreter, handler: self.handler!)
+        } else {
+            return session.ghs_dataTask(request: request, apiLabel: self.apiLabel, operationLabel: self.operationLabel, jsonResponseInterpreter: self.jsonResponseInterpreter!, errorMessageInterpreter: self.errorMessageInterpreter, handler: self.handler!)
+        }
     }
     
 }
