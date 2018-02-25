@@ -13,9 +13,9 @@ class PinningURLSessionDelegateTests: XCTestCase {
     
     func testPinning() {
         
-        let testUrlString = "https://marcato-api.goldenhillsoftware.com/test.txt"
+        let testUrlString = "https://unreadapi.goldenhillsoftware.com/test.txt"
         
-        guard let certificateUrl = Bundle(for: PinningURLSessionDelegateTests.self).url(forResource: "marcato-api", withExtension: "der") else {
+        guard let certificateUrl = Bundle(for: PinningURLSessionDelegateTests.self).url(forResource: "unreadapi", withExtension: "der") else {
             XCTFail()
             return
         }
@@ -24,7 +24,7 @@ class PinningURLSessionDelegateTests: XCTestCase {
         let session = URLSession(configuration: URLSessionConfiguration.ephemeral, delegate: delegate, delegateQueue: nil)
         let url = URL(string: testUrlString)!
         
-        // Validate that we can access marcato-api.goldenhillsoftware.com as expected.
+        // Validate that we can access unreadapi.goldenhillsoftware.com as expected.
         var expectation = self.expectation(description: "test")
         var dataTask = session.dataTask(with: url) { (data, response, error) in
             if let httpUrlResponse = response as? HTTPURLResponse {
@@ -56,19 +56,19 @@ class PinningURLSessionDelegateTests: XCTestCase {
     
     func testShouldFollowRedirects() {
         
-        guard let certificateUrl = Bundle(for: PinningURLSessionDelegateTests.self).url(forResource: "marcato-api", withExtension: "der") else {
+        guard let certificateUrl = Bundle(for: PinningURLSessionDelegateTests.self).url(forResource: "unreadapi", withExtension: "der") else {
             XCTFail()
             return
         }
         let delegate = PinningURLSessionDelegate(followRedirects: .always, certificateUrls: [certificateUrl])
         let session = URLSession(configuration: URLSessionConfiguration.ephemeral, delegate: delegate, delegateQueue: nil)
-        let url = URL(string: "https://marcato-api.goldenhillsoftware.com/redirecttest")!
+        let url = URL(string: "https://unreadapi.goldenhillsoftware.com/redirecttest")!
         
         let expectation = self.expectation(description: "test")
         let dataTask = session.dataTask(with: url) { (data, response, error) in
             if let httpUrlResponse = response as? HTTPURLResponse {
                 XCTAssertTrue(httpUrlResponse.statusCode == 200)
-                XCTAssertEqual(httpUrlResponse.url?.absoluteString, "https://marcato-api.goldenhillsoftware.com/test.txt")
+                XCTAssertEqual(httpUrlResponse.url?.absoluteString, "https://unreadapi.goldenhillsoftware.com/test.txt")
             } else if let e = error {
                 XCTFail(e.localizedDescription)
             } else {
@@ -83,7 +83,7 @@ class PinningURLSessionDelegateTests: XCTestCase {
     
     func testShouldNotFollowRedirects() {
         
-        guard let certificateUrl = Bundle(for: PinningURLSessionDelegateTests.self).url(forResource: "marcato-api", withExtension: "der") else {
+        guard let certificateUrl = Bundle(for: PinningURLSessionDelegateTests.self).url(forResource: "unreadapi", withExtension: "der") else {
             XCTFail()
             return
         }
@@ -91,13 +91,13 @@ class PinningURLSessionDelegateTests: XCTestCase {
         let delegate = PinningURLSessionDelegate( followRedirects: FollowRedirects.never, certificateUrls: [certificateUrl] )
 
         let session = URLSession(configuration: URLSessionConfiguration.ephemeral, delegate: delegate, delegateQueue: nil)
-        let url = URL(string: "https://marcato-api.goldenhillsoftware.com/redirecttest")!
+        let url = URL(string: "https://unreadapi.goldenhillsoftware.com/redirecttest")!
         
         let expectation = self.expectation(description: "test")
         let dataTask = session.dataTask(with: url) { (data, response, error) in
             if let httpUrlResponse = response as? HTTPURLResponse {
                 XCTAssertTrue(httpUrlResponse.statusCode == 301)
-                XCTAssertEqual(httpUrlResponse.url?.absoluteString, "https://marcato-api.goldenhillsoftware.com/redirecttest")
+                XCTAssertEqual(httpUrlResponse.url?.absoluteString, "https://unreadapi.goldenhillsoftware.com/redirecttest")
             } else if let e = error {
                 XCTFail(e.localizedDescription)
             } else {

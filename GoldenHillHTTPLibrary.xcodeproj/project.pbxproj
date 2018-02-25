@@ -27,8 +27,8 @@
 		2137123A1E70784100961208 /* GoldenHillHTTPLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D378741E67298D00B985FD /* GoldenHillHTTPLibrary.framework */; };
 		213712431E707D6000961208 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D5F8C51E6729C000B9A70F /* Result.framework */; };
 		2137124B1E7088B800961208 /* FollowRedirects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137124A1E7088B800961208 /* FollowRedirects.swift */; };
+		213AEE16204305FA00873BEC /* unreadapi.der in Resources */ = {isa = PBXBuildFile; fileRef = 213AEE15204305F900873BEC /* unreadapi.der */; };
 		21487A271F158E4F005C2727 /* JsonDataTaskGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21487A261F158E4F005C2727 /* JsonDataTaskGenerator.swift */; };
-		21771BB91E70E8BB00C923EF /* marcato-api.der in Resources */ = {isa = PBXBuildFile; fileRef = 21771BB51E70E8BB00C923EF /* marcato-api.der */; };
 		21771BBA1E70E8BB00C923EF /* PinningURLSessionDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771BB61E70E8BB00C923EF /* PinningURLSessionDelegateTests.swift */; };
 		21771BBB1E70E8BB00C923EF /* SimpleURLSessionDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771BB71E70E8BB00C923EF /* SimpleURLSessionDelegateTests.swift */; };
 		21771BC81E70E96B00C923EF /* HTTPAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771BC41E70E96B00C923EF /* HTTPAPIErrorTests.swift */; };
@@ -105,9 +105,9 @@
 		2137122F1E70773900961208 /* PinningURLSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinningURLSessionDelegate.swift; sourceTree = "<group>"; };
 		213712351E70784100961208 /* Integration Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Integration Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2137124A1E7088B800961208 /* FollowRedirects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowRedirects.swift; sourceTree = "<group>"; };
+		213AEE15204305F900873BEC /* unreadapi.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = unreadapi.der; path = "Integration Tests/unreadapi.der"; sourceTree = SOURCE_ROOT; };
 		21487A261F158E4F005C2727 /* JsonDataTaskGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonDataTaskGenerator.swift; sourceTree = "<group>"; };
 		21771BB41E70E8BB00C923EF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Integration Tests/Info.plist"; sourceTree = SOURCE_ROOT; };
-		21771BB51E70E8BB00C923EF /* marcato-api.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = "marcato-api.der"; path = "Integration Tests/marcato-api.der"; sourceTree = SOURCE_ROOT; };
 		21771BB61E70E8BB00C923EF /* PinningURLSessionDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PinningURLSessionDelegateTests.swift; path = "Integration Tests/PinningURLSessionDelegateTests.swift"; sourceTree = SOURCE_ROOT; };
 		21771BB71E70E8BB00C923EF /* SimpleURLSessionDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleURLSessionDelegateTests.swift; path = "Integration Tests/SimpleURLSessionDelegateTests.swift"; sourceTree = SOURCE_ROOT; };
 		21771BC41E70E96B00C923EF /* HTTPAPIErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPAPIErrorTests.swift; path = "Unit Tests/HTTPAPIErrorTests.swift"; sourceTree = SOURCE_ROOT; };
@@ -191,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				21771BB41E70E8BB00C923EF /* Info.plist */,
-				21771BB51E70E8BB00C923EF /* marcato-api.der */,
+				213AEE15204305F900873BEC /* unreadapi.der */,
 				21771BB61E70E8BB00C923EF /* PinningURLSessionDelegateTests.swift */,
 				21771BB71E70E8BB00C923EF /* SimpleURLSessionDelegateTests.swift */,
 			);
@@ -486,7 +486,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21771BB91E70E8BB00C923EF /* marcato-api.der in Resources */,
+				213AEE16204305FA00873BEC /* unreadapi.der in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

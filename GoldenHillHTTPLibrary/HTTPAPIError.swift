@@ -128,7 +128,7 @@ public enum HTTPAPIError: Error {
     
     func convertToSentence( serverError: String? ) -> String? {
         if var serverErrorMessage = serverError {
-            if (serverErrorMessage.characters.count == 0) {
+            if (serverErrorMessage.count == 0) {
                 return nil
             }
             
@@ -139,7 +139,7 @@ public enum HTTPAPIError: Error {
                 dataDetector.enumerateMatches(in: serverErrorMessage, options: [], range: NSMakeRange(0, (serverErrorMessage as NSString).length)) { (result, flags, _) in
                     if (result?.range.location == 0) {
                         startsWithLink = true
-                        if (result?.range.length == serverErrorMessage.characters.count) {
+                        if (result?.range.length == serverErrorMessage.count) {
                             entirelyLink = true
                         }
                     }
