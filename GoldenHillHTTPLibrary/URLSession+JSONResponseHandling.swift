@@ -19,13 +19,14 @@ public extension URLSession {
     
     
     static let ghs_jsonContentTypes = ["application/json", "text/json", "text/javascript"]
+    static let ghs_successfulStatusCodes = [200, 201]
     static let ghs_successfulStatusCodesNoContent = [200, 201, 202, 204]
 
     /*
      This adds a method to the NSURLSession that requires far less error checking and 
      handling on the part of the caller. For simplicity, it assumes the following:
      * That the request is an HTTP/HTTPS request.
-     * That it expects a 200 response and a JSON body.
+     * That it expects a 200 or 201 response and a JSON body.
      
      These are the parameters:
      * request: The request to be executed.
@@ -102,7 +103,7 @@ public extension URLSession {
                 }
             }
             
-            if httpResponse.statusCode == 200 {
+            if URLSession.ghs_successfulStatusCodes.contains(httpResponse.statusCode) {
                 guard let mimeType = httpResponse.mimeType, URLSession.ghs_jsonContentTypes.contains(mimeType) else {
                     handler(Result.failure(HTTPAPIError.responseNotJson(apiLabel: apiLabel, operationLabel: operationLabel, contentType: httpResponse.mimeType)))
                     return
