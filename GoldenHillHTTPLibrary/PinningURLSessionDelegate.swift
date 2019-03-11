@@ -18,7 +18,13 @@ public class PinningURLSessionDelegate: SimpleURLSessionDelegate {
         must be in DER format.
     */
     @objc
-    public init( followRedirects: FollowRedirects, certificateUrls: [URL] ) {
+    public init( followRedirects: Bool, certificateUrls: [URL] ) {
+        self.certificateUrls = certificateUrls
+        let followRedirectsEnum: FollowRedirects = followRedirects ? FollowRedirects.always : FollowRedirects.never
+        super.init(followRedirects: followRedirectsEnum)
+    }
+    
+   public init( followRedirects: FollowRedirects, certificateUrls: [URL] ) {
         self.certificateUrls = certificateUrls
         super.init(followRedirects: followRedirects)
     }
