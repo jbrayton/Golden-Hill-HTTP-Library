@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Result
 
 public typealias HTTPAPIResult<T> = Result<T,HTTPAPIError>
 

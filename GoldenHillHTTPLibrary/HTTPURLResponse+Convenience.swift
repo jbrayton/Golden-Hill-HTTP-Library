@@ -11,7 +11,7 @@ import Foundation
 
 public extension HTTPURLResponse {
     
-    public func ghs_value(forHeaderNamed requestedHeaderName: String) -> String? {
+    func ghs_value(forHeaderNamed requestedHeaderName: String) -> String? {
         for (name, value) in self.allHeaderFields {
             if let headerName = name as? String, let headerValue = value as? String {
                 if headerName.lowercased() == requestedHeaderName.lowercased() {
@@ -22,7 +22,7 @@ public extension HTTPURLResponse {
         return nil
     }
     
-    public func ghs_link(forHeaderNamed requestedHeaderName: String, linkNamed requestedLinkName: String ) -> URL? {
+    func ghs_link(forHeaderNamed requestedHeaderName: String, linkNamed requestedLinkName: String ) -> URL? {
         guard let headerValue = self.ghs_value(forHeaderNamed: requestedHeaderName) else {
             return nil
         }
@@ -40,7 +40,7 @@ public extension HTTPURLResponse {
         return nil
     }
     
-    public var ghs_redirectType: RedirectType {
+    var ghs_redirectType: RedirectType {
         switch self.statusCode {
         case 301, 303, 308:
             return .permanent

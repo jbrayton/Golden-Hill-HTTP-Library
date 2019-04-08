@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Result
 
 public typealias ErrorMessageInterpreter = (Any) -> String?
 
@@ -42,7 +41,7 @@ public extension URLSession {
        could be found in the response.
      * handler: Will be called when completed with either a success response or an error response.
      */
-    public func ghs_dataTask<T>( request: URLRequest, apiLabel: String, operationLabel: String, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<T> ) -> URLSessionDataTask {
+    func ghs_dataTask<T>( request: URLRequest, apiLabel: String, operationLabel: String, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<T> ) -> URLSessionDataTask {
         NotificationCenter.default.post(name: NetworkNotifications.starting, object: nil)
         return self.dataTask(with: request, completionHandler: {[unowned self](data, response, error) in
             self.ghs_completionHandler(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, jsonResponseInterpreter: jsonResponseInterpreter, errorMessageInterpreter: errorMessageInterpreter, handler: handler)
@@ -50,7 +49,7 @@ public extension URLSession {
         })
     }
 
-    public func ghs_dataTask<T>( request: URLRequest, apiLabel: String, operationLabel: String, jsonAndHeaderResponseInterpreter: @escaping JsonAndHeaderResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<T> ) -> URLSessionDataTask {
+    func ghs_dataTask<T>( request: URLRequest, apiLabel: String, operationLabel: String, jsonAndHeaderResponseInterpreter: @escaping JsonAndHeaderResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<T> ) -> URLSessionDataTask {
         NotificationCenter.default.post(name: NetworkNotifications.starting, object: nil)
         return self.dataTask(with: request, completionHandler: {[unowned self](data, response, error) in
             self.ghs_completionHandler(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, jsonAndHeaderResponseInterpreter: jsonAndHeaderResponseInterpreter, errorMessageInterpreter: errorMessageInterpreter, handler: handler)
@@ -65,7 +64,7 @@ public extension URLSession {
        parameter.
      * It will accept an HTTP response code of 200, 201, 202, or 204.
      */
-    public func ghs_dataTask( request: URLRequest, apiLabel: String, operationLabel: String, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<Void> ) -> URLSessionDataTask {
+    func ghs_dataTask( request: URLRequest, apiLabel: String, operationLabel: String, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping HTTPAPIResultHandler<Void> ) -> URLSessionDataTask {
 
         return self.ghs_dataTask(request: request, apiLabel: apiLabel, operationLabel: operationLabel, jsonResponseInterpreter: URLSession.self.ghs_voidJsonInterpreter, handler: handler)
     }
@@ -78,7 +77,7 @@ public extension URLSession {
         
     }
 
-    public func ghs_completionHandler<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping (Result<T,HTTPAPIError>) -> Void ) {
+    func ghs_completionHandler<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonResponseInterpreter: @escaping JsonResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping (Result<T,HTTPAPIError>) -> Void ) {
         
         let jsonAndHeaderResponseInterpreter: JsonAndHeaderResponseInterpreter<T> = { (response: HTTPURLResponse, json: Any ) in
             return jsonResponseInterpreter(json)
@@ -86,7 +85,7 @@ public extension URLSession {
         self.ghs_completionHandler(request: request, apiLabel: apiLabel, operationLabel: operationLabel, data: data, response: response, error: error, jsonAndHeaderResponseInterpreter: jsonAndHeaderResponseInterpreter, errorMessageInterpreter: errorMessageInterpreter, handler: handler)
     }
 
-    public func ghs_completionHandler<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonAndHeaderResponseInterpreter: @escaping JsonAndHeaderResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping (Result<T,HTTPAPIError>) -> Void ) {
+    func ghs_completionHandler<T>( request: URLRequest, apiLabel: String, operationLabel: String, data: Data?, response: URLResponse?, error: Error?, jsonAndHeaderResponseInterpreter: @escaping JsonAndHeaderResponseInterpreter<T>, errorMessageInterpreter: @escaping ErrorMessageInterpreter = { (x) in return nil }, handler: @escaping (Result<T,HTTPAPIError>) -> Void ) {
         if let httpResponse = response as? HTTPURLResponse {
             
             // If jsonResponseInterpreter returns Void, there is no reason to parse the JSON. There may not even be JSON to

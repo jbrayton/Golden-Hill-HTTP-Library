@@ -10,7 +10,7 @@ import Foundation
 
 public extension URLRequest {
     
-    public mutating func ghs_setPostJson(_ jsonDictionary: [String: Any]) {
+    mutating func ghs_setPostJson(_ jsonDictionary: [String: Any]) {
         do {
             self.setValue("application/json", forHTTPHeaderField: "Content-Type")
             self.httpMethod = "POST"
@@ -21,12 +21,12 @@ public extension URLRequest {
         }
     }
     
-    public mutating func ghs_setPostArgString( _ value: String ) {
+    mutating func ghs_setPostArgString( _ value: String ) {
         self.httpMethod = "POST"
         self.httpBody = value.data(using: String.Encoding.utf8)
     }
     
-    public mutating func ghs_setBasicAuth( username: String, password: String ) {
+    mutating func ghs_setBasicAuth( username: String, password: String ) {
         let str = String(format: "%@:%@", arguments: [username, password])
         let data = str.data(using: String.Encoding.utf8)!
         let base64 = data.base64EncodedData(options: NSData.Base64EncodingOptions())
