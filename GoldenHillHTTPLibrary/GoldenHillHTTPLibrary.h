@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import <CommonCrypto/CommonHMAC.h>
+
 //! Project version number for GoldenHillHTTPLibrary.
 FOUNDATION_EXPORT double GoldenHillHTTPLibraryVersionNumber;
 
