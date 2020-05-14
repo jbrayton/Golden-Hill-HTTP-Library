@@ -50,7 +50,6 @@ public class PinningURLSessionDelegate: SimpleURLSessionDelegate {
                             str == serverHashKey
                         })) {
                             // Success! This is our server
-                            print("Public key pinning is successfully completed")
                             completionHandler(.useCredential, URLCredential(trust:serverTrust))
                             return
                         }
