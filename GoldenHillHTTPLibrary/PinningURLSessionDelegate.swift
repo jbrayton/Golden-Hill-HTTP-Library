@@ -71,7 +71,7 @@ public class PinningURLSessionDelegate: SimpleURLSessionDelegate {
         var keyWithHeader = Data(rsa2048Asn1Header)
         keyWithHeader.append(data)
         var hash = [UInt8](repeating: 0,  count: Int(CC_SHA256_DIGEST_LENGTH))
-        _ = keyWithHeader.withUnsafeBytes { (ptr: UnsafeRawBufferPointer) -> Void in
+        keyWithHeader.withUnsafeBytes { (ptr: UnsafeRawBufferPointer) -> Void in
             _ = CC_SHA256(ptr.baseAddress, CC_LONG(keyWithHeader.count), &hash)
         }
         return Data(hash).base64EncodedString()
